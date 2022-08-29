@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_142003) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_164124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections_restaurants_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_connections_restaurants_users_on_restaurant_id"
+    t.index ["user_id"], name: "index_connections_restaurants_users_on_user_id"
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.bigint "menu_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_dishes_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "owner"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_142003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "connections_restaurants_users", "restaurants"
+  add_foreign_key "connections_restaurants_users", "users"
+  add_foreign_key "dishes", "menus"
+  add_foreign_key "menus", "restaurants"
 end
