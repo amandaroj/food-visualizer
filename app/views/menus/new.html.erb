@@ -1,8 +1,8 @@
 <div>
-<h1>Update menu details</h1>
+<h1>New menu</h1>
 <%= simple_form_for [@restaurant, @menu] do |f| %>
   <%= f.input :name %>
   <%= f.input :category %>
-  <%= f.submit "Update Menu", class: "btn btn-secondary" %>
+  <%= f.submit "Create Menu", class: "btn btn-secondary" %>
 <% end %>
 </div>
