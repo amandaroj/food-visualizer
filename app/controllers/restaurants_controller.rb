@@ -5,9 +5,18 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @menus = Menu.where(restaurant_id == @restaurant.id) # why does this not work?
-  end
+    # optional: you can also acces @restaurant.menus
+    @menus = Menu.where({ restaurant_id: @restaurant.id }) # does not work, WHY?
+    # @menus = Menu.where(restaurant_id == @restaurant.id) # does not work, WHY?
+    # it will read restaurant_id as a column, so to acces column names, you always have to be a key, so whatever
+    # is in your where, it's a hash (you can ommit the curly brackets)
 
+    # @menus = Menu.where(params[:restaurant_id] == @restaurant.id) # does work, WHY?
+    # same as : @menus = Menu.all
+    # SELECT * FROM menus WHERE 6 == 6
+
+    # why does restaurant_id == @restaurant.id not work but restaurant_id: works
+  end
 
   def new
     @restaurant = Restaurant.new
@@ -33,12 +42,11 @@ class RestaurantsController < ApplicationController
     else
       render 'edit', status: :unprocessable_entities
     end
-    redirect_to restaurants_path
   end
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.destory
+    @restaurant.destroy
     redirect_to restaurants_path, status: :see_other
   end
 

@@ -1,1 +1,16 @@
-Show all the dishes
+<h1><%=@menu.name%></h1>
+<br>
+<% @dishes.each do |dish|%>
+  <div class = "card">
+    <h3><%=dish.name%></h3>
+    <p><%=dish.description%></p>
+    <p>Price: <%=dish.price%></p>
+    <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish) %>
+    <%=link_to "Delete",  restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>  </div>
+<% end%>
+
+<br>
+<br>
+<br>
+<%= link_to "Add dish", new_restaurant_menu_dish_path(@menu.restaurant, @menu) %>
+</div>

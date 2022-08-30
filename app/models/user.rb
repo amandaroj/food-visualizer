@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_restaurants
+  has_many :user_restaurants, dependent: :destroy
   has_many :restaurants, through: :user_restaurants # a user has many restauratns through the connection table user_restaurants
 end
