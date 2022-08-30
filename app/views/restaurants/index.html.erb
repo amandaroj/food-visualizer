@@ -1,1 +1,18 @@
-Show all the restaurants hear so you can create/delete/edit them.
+<div class = >
+<h1>Your Restaurants</h1>
+<% @restaurants.each do |restaurant|%>
+  <div class = "card">
+    <h3><%=restaurant.name%></h3>
+    <p><%=restaurant.owner%></p>
+    <p><%=restaurant.location%></p>
+    <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "btn btn-secondary"%>
+    <br>
+    <%=link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary"%>
+  </div class = "card">
+<% end%>
+
+<br>
+<br>
+<br>
+<%=link_to "Add restaurant", new_restaurant_path, class: "btn btn-secondary" %>
+</div>

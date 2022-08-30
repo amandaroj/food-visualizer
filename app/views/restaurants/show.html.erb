@@ -1,1 +1,15 @@
 Show all the menus of this restaurant here.
+<div class = >
+<h1>Your Menus</h1>
+<% @menus.each do |menu|%>
+  <h3><%=menu.name%></h3>
+  <p><%=menu.category%></p>
+  <%=link_to "Edit", edit_restaurant_menu(params[:restaurant_id], menu.id) %>
+  <%=link_to "Delete", restaurant_menu_path(params[:restaurant_id], menu.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<% end%>
+
+<br>
+<br>
+<br>
+<%=link_to "Add menu", new_restaurant_menu_path(params[:restaurant_id]) %>
+</div>
