@@ -10,4 +10,21 @@ class PagesController < ApplicationController
     @restaurant = "don't know yet"
     @menus = Menu.where(restaurant_id: @restaurant)
   end
+
+  def scanned
+    # The QR code tells you: the restaurant_id
+    @id = 15
+    @restaurant = Restaurant.find(@id)
+    @menus = Menu.where(restaurant_id: @id)
+    # then you want to see the restaurants#show and klick the menu you want to see
+    # this could be a pages#menus ()
+    # then you want the menus#show page
+  end
+
+  def dishes
+    # @dishes = Dish.where()
+    @menu = Menu.find(params[:menu_id])
+    @dishes = Dish.where(menu: @menu)
+  end
+
 end
