@@ -4,6 +4,7 @@
   <br>
   <h2>Your restaurants</h2>
   </div>
+
   <div class = "cards-dashboard">
     <% @restaurants.each do |restaurant|%>
      <div class = "card">
@@ -19,9 +20,9 @@
  </div>
 
 __________________________________________________________________________
-  <div class=cards-grid-index>
+  <div class="cards-grid-index">
     <div class="card" style="width: 18rem;">
-      <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill)%>
+      <%# <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill)%> %>
       <div class="card-body">
         <h5>Restaurant name</h5>
         <p>Restaurant owner</p>

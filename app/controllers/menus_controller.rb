@@ -39,6 +39,13 @@ class MenusController < ApplicationController
     redirect_to restaurant_path(@restaurant), status: :see_other
   end
 
+  def qr
+    @menu = Menu.find(params[:id])
+    @dishes = Dish.where(menu_id: @menu.id)
+    RQRCode::QRCode.new("https://foodvisualiser.com/")
+  end
+
+
   private
 
   def menu_params
