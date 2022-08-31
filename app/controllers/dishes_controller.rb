@@ -24,7 +24,16 @@ class DishesController < ApplicationController
     @dish = Dish.find(params[:id])
     @menu = Menu.find(params[:menu_id])
     @restaurant = Restaurant.find(params[:restaurant_id])
-    if @dish.update(dish_params)
+
+    # params = dish_params[:photos].first.empty? ? dish_params.except(:photos) : # it's a hash
+
+    if dish_params[:photos].size < 2
+      params = dish_params.except(:photos)
+    else
+      params = dish_params
+    end
+
+    if @dish.update(params)
       redirect_to restaurant_menu_path(@restaurant, @menu)
     else
       render 'edit', status: :unprocessable_entities
@@ -41,6 +50,6 @@ class DishesController < ApplicationController
 
   private
     def dish_params
-      params.require(:dish).permit(:name, :description, :price)
+      params.require(:dish).permit(:name, :description, :price, photos: [])
     end
 end

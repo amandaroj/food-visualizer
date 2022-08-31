@@ -10,6 +10,7 @@
     </div>
   </div>
 
+
   <div class="cards-grid-dashboard">
     <% @restaurants.each do |restaurant|%>
       <div class="card-restaurant" style="width: 18rem;">
@@ -21,6 +22,7 @@
         </div>
       </div>
     <% end%>
+
 
     <div class="btns">
       <%=link_to "Edit your restaurants", restaurants_path, class: "btn btn-secondary"%>
