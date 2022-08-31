@@ -1,0 +1,22 @@
+.form-text {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-inputs {
+  width: 400px;
+}
+
+.form-radius {
+  border-radius: 7px;
+}
+
+.btn-margin {
+  margin-right: 25px;
+}

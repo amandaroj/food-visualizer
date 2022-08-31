@@ -45,6 +45,8 @@ class MenusController < ApplicationController
     RQRCode::QRCode.new("https://foodvisualiser.com/")
   end
 
+  def visitor
+  end
 
   private
 
