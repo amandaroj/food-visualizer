@@ -1,0 +1,17 @@
+.cards-dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+}
+
+.card {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+}

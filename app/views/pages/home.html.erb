@@ -7,9 +7,13 @@
 
   <br>
 
-  <div class="btns">
-  <%= link_to 'Sign Up',  new_user_registration_path, class: "btn btn-outline-secondary"%>
-  </div>
+  <% if current_user %>
+  <h2>hello</h2>
+  <% else %>
+    <div class="btns">
+    <%= link_to 'Sign Up',  new_user_registration_path, class: "btn btn-outline-secondary"%>
+    </div>
+  <% end %>
 
   <br>
 

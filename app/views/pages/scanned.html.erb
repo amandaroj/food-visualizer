@@ -1,0 +1,8 @@
+<h1> Menus of <%=@restaurant.name%> </h1>
+<%@menus.each do |menu|%>
+  <div class ="card">
+    <%=menu.name%>
+    <br>
+    <%=link_to "See this menu", dishes_path(menu)%>
+  </div>
+<% end%>

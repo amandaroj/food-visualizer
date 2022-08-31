@@ -39,6 +39,10 @@ class MenusController < ApplicationController
     redirect_to restaurant_path(@restaurant), status: :see_other
   end
 
+  def visitor
+    raise
+  end
+
   private
 
   def menu_params

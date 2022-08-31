@@ -11,7 +11,6 @@ class DishesController < ApplicationController
     @menu = Menu.find(params[:menu_id])
     @dish.menu_id = params[:menu_id]
     @dish.save
-    raise
     redirect_to restaurant_menu_path(@restaurant, @menu)
   end
 
