@@ -1,19 +1,12 @@
-.cards-dashboard {
+/* .cards-dashboard {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
-}
+} */
 
 .card {
   border: 1px solid black;
   width: 30px;
-}
-
-.btns {
-  display: flex;
-  align-items: center;
-
 }
 
 .cards-grid-dashboard {
@@ -23,8 +16,45 @@
   grid-gap: 30px 50px;
   justify-items: start;
   margin-right: 675px;
+  margin-bottom: 30px;
 }
 .times-scanned {
   display: flex;
   justify-content: flex-end;
+  /* .dot {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+  } */
+}
+
+i {
+  margin-right: 841px;
+  color: rgb(178, 175, 175);
+  font-size: 20px;
+}
+
+i:hover {
+  color: grey;
+}
+
+.reviews-alerts {
+  justify-content: space-between;
+  .reviews {
+    text-align: left;
+  }
+  .alerts {
+    text-align: left;
+  }
+}
+
+#square {
+  width: 100px;
+  height: 100px;
+  border-radius: 5%;
+  background: white;
+  margin-left: 491px;
+  margin-top: 17px;
+  box-shadow: rgba(176, 176, 177, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }

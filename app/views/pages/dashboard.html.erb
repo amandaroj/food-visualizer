@@ -4,12 +4,17 @@
     <br>
     <div class="d-flex justify-content-between">
       <h2>Your restaurants</h2>
+      <div>
+        <%= link_to restaurants_path do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+      </div>
       <div class="times-scanned">
-        <p>Times scanned today:</p>
+        <p>Times scanned today</p>
+        <%# <span class="dot"></span> %>
       </div>
     </div>
   </div>
-
   <div class="cards-grid-dashboard">
     <% @restaurants.each do |restaurant|%>
       <div class="card" style="width: 18rem;">
@@ -21,23 +26,20 @@
         </div>
       </div>
     <% end%>
-
-    <div class="btns">
-      <%=link_to "Edit your restaurants", restaurants_path, class: "btn btn-secondary"%>
-    </div>
+    <div id="square"></div>
   </div>
 
-
-
-  <div class="reviews-alerts">
+    <div class="reviews-alerts">
     <div class = "reviews">
       <h4>Reviews</h4>
-      <p>Recent reviews</p>
+      <p>One review flksfçsdfdsklfklweflF</p>
+      <p>Another review FKJSLKFJEWOIINsnl</p>
     </div>
 
     <div class = "alerts">
       <h4>Alerts</h4>
-      <p>Dishes that got less than 2 stars</p>
+      <p>Firs dish</p>
+      <p>Second dish</p>
     </div>
   </div>
 </div>
