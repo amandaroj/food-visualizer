@@ -22,3 +22,6 @@ a = Restaurant.create!(name: "Local Kitchen", owner: "Jesus", location: "Baixa C
 b = User.create!(email: "localkitchen@gmail.com", password: "6897456891")
 
 UserRestaurant.create!(user_id: b.id, restaurant_id: a.id) # or (user: u, restaurant: r)
+
+z = Restaurant.create!(name: "La Follia", owner: "Felicite", location: "Lisbon")
+UserRestaurant.create!(user_id: u.id, restaurant_id: z.id) # or (user: u, restaurant: r)
