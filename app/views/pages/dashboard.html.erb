@@ -12,7 +12,7 @@
 
   <div class="cards-grid-dashboard">
     <% @restaurants.each do |restaurant|%>
-      <div class="card" style="width: 18rem;">
+      <div class="card-restaurant" style="width: 18rem;">
         <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill)%>
         <div class="card-body">
           <h5><%= restaurant.name %></h5>
