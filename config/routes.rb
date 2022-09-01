@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :restaurants do
     resources :menus do
-      resources :dishes
+      resources :dishes do
+        resources :reviews
+      end
     end
   end
 
