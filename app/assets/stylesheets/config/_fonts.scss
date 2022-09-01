@@ -6,7 +6,7 @@ $body-font: 'Anek Bangla', sans-serif;
 $headers-font: 'Anek Bangla', sans-serif;
 
 h1 { //big header, used for: Dashboard, Your menus in restaurants#show and Your restaurants in restaurants#index and in menus#show Menu title
- font-weight: bold; // why does this not show?
+//  font-weight: 700 !important; // why does this not show?
  font-size: 48px;
  color: black;
 }
