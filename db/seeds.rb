@@ -10,7 +10,7 @@ Restaurant.destroy_all
 User.destroy_all
 
 r = Restaurant.create!(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
-u = User.create!(email: "ealhaverkort@gmail.com", password: "1234567890")
+u = User.create!(email: "ealhaverkort@gmail.com", password: "1234567890", first_name: "Eva", last_name: "Haverkort")
 
 UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
 
