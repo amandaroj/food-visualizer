@@ -1,18 +1,30 @@
-<div class = >
-<h1>Your Restaurants</h1>
-<% @restaurants.each do |restaurant|%>
-  <div class = "card">
-    <h3><%=restaurant.name%></h3>
-    <p><%=restaurant.owner%></p>
-    <p><%=restaurant.location%></p>
-    <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "btn btn-secondary"%>
-    <br>
-    <%=link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary"%>
-  </div class = "card">
-<% end%>
+<div class="container">
+  <div class="titles">
+    <h1>Your Restaurants</h1>
+  </div>
 
-<br>
-<br>
-<br>
-<%=link_to "Add restaurant", new_restaurant_path, class: "btn btn-secondary" %>
+  <div class="cards-grid-dashboard">
+    <% @restaurants.each do |restaurant|%>
+    <div class = "card cards-dashboard" style="width: 18rem;">
+      <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
+      <div class="card-body">
+        <div>
+          <h3><%=restaurant.name%></h3>
+          <p><%=restaurant.owner%></p>
+          <p><%=restaurant.location%></p>
+        </div>
+        <%# <div> %>
+        <%# <%= link_to "See menus", restaurant_menus_path(restaurant.id), class: "secondary_button" %>
+        <%# </div> %>
+      </div>
+      <div class="card-button">
+        <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main_button card-button-edit"%>
+        <%=link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "secondary_button card-button-delete"%>
+      </div>
+    </div>
+    <% end%>
+  </div>
+    <br>
+    <br>
+    <%=link_to "Add restaurant", new_restaurant_path, class: "main_button" %>
 </div>

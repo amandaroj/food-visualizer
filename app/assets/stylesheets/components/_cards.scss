@@ -89,3 +89,9 @@
 .cards-12-col{
   grid-template-columns: repeat(12, [col] 1fr) !important;
 }
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  margin: -14px 0 10px 0;
+}
