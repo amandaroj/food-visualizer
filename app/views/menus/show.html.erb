@@ -7,29 +7,34 @@
     <%= link_to "Add dish", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button" %>
   </div>
   <% @dishes.each do |dish| %>
-      <div class="cards-dishes d-flex ">
-        <div class=" card_picture">
-          <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
-           <%# data-bs-ride to data-ride and added data-interval = "false" %>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card_picture_borders picture-dish-card', height: 300, width: 400, crop: :fill %>
-              </div>
-              <% dish.photos.drop(1).each do |photo| %>
-                <div class="carousel-item">
-                  <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400, crop: :fill %>
+      <div class="cards-dishes d-flex">
+        <div class="card-picture">
+          <% if dish.photos.attached? %>
+            <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
+            <%# data-bs-ride to data-ride and added data-interval = "false" %>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400, crop: :fill %>
                 </div>
-              <% end %>
+                <% dish.photos.drop(1).each do |photo| %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400, crop: :fill %>
+                  </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+          <% else %>
+            <%= image_tag "logo.jpeg", class: "card-picture-borders picture-dish-card card-picture" %>
+            <%# the image tag makes the path for you %>
+          <% end %>
         </div>
 
         <div class="col">

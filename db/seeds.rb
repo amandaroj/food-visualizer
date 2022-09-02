@@ -12,11 +12,10 @@ User.destroy_all
 r = Restaurant.create!(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
 u = User.create!(email: "ealhaverkort@gmail.com", password: "1234567890")
 
-UserRestaurant.create!(user_id: u.id, restaurant_id: r.id) # or (user: u, restaurant: r)
+UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
 
 m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id)
-d = Dish.create!(name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
-
+Dish.create!(name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
 
 a = Restaurant.create!(name: "Local Kitchen", owner: "Jesus", location: "Baixa Chiado")
 b = User.create!(email: "localkitchen@gmail.com", password: "6897456891")
