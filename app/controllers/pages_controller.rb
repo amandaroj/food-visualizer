@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def dashboard
     @restaurants = current_user.restaurants
     # listen to what restaurant is clicked and define @restaurant
-    @restaurant = "don't know yet"
+    @restaurant = 17
     @menus = Menu.where(restaurant_id: @restaurant)
   end
 

@@ -6,4 +6,10 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
+
+// TRY: 
+// $(document).on("click", "#element", function(){
+//   // do something here
+// });
+
 export { application }
