@@ -1,9 +1,16 @@
-<div>
-<h1>New dish</h1>
-<%= simple_form_for [@restaurant, @menu, @dish] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit "Create dish", class: "btn btn-secondary" %>
-<% end %>
+<div class="container">
+  <div class="header-text">
+    <br>
+    <h1>New dish</h1>
+  </div>
+
+  <div class="form-text">
+    <%= simple_form_for [@restaurant, @menu, @dish] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Create dish", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
 </div>

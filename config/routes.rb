@@ -5,12 +5,20 @@ Rails.application.routes.draw do
   get "/scanned", to: "pages#scanned"
   get "menus/:menu_id/dishes", to: "pages#dishes", as: "dishes"
 
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :restaurants do
     resources :menus do
-      resources :dishes
+      resources :dishes do
+        resources :reviews
+      end
     end
   end
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  get "qr", to: "menus#qr"
+
+  # controller :menus do
+  #   get "restaurant_id/menu_id/qr_code_generator", to: "menus#qr_code_generator"
+  #   get "restaurant_id/menu_id/qr_code_download", to: "menus#qr_code_download"
+  # end
 end

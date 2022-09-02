@@ -1,0 +1,80 @@
+.cards-dishes {
+  margin-top: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 70%px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  margin: auto;
+  width: 70%;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.card_picture {
+  width: 320px;
+}
+
+.card_picture_borders {
+  border-radius: 15px 0px 0px 15px ;
+}
+
+.text-card-dishes {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+
+.buttons_in_card {
+  margin-top: 80px;
+}
+
+
+.cards-menus {
+  margin-top: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 350px;
+  height: 250px;
+}
+
+.cards-menus-guest {
+  justify-content: center;
+  text-align: center;
+  width: 220px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.buttons-cards-placing-guest {
+  padding: 40px;
+}
+
+.cards-menus-guest-text{
+  margin-top: 30px;
+}
+
+.buttons-cards-placing {
+  margin-top: 110px;
+  margin-bottom: 20px;
+}
+
+.trashcan-div-menus {
+  position: absolute;
+  right: -5px;
+  top: 17px;
+  width: 40px;
+  font-size: 20px;
+}
+
+.cards-12-col{
+  grid-template-columns: repeat(12, [col] 1fr) !important;
+}

@@ -2,8 +2,36 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Anek Bangla', sans-serif;
+$headers-font: 'Anek Bangla', sans-serif;
+
+h1 { //big header, used for: Dashboard, Your menus in restaurants#show and Your restaurants in restaurants#index and in menus#show Menu title
+//  font-weight: 700 !important; // why does this not show?
+ font-size: 48px;
+ color: black;
+}
+
+h2 {
+  font-weight: light;
+  font-size: 36px;
+  color: black;
+}
+
+h3 { //sub header
+  font-weight: light;
+  font-size: 24px;
+  color: black;
+}
+
+h4 { //small header for the names of restaurants, menus and dishes in the cards & buttons/links
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+
+p {
+  color: #7e7e7e;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

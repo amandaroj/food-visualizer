@@ -1,0 +1,82 @@
+.main_button {
+   padding: 10px;
+   background-image: linear-gradient(180deg, #FF522F, #F1B51A);
+   color: white;
+   text-decoration: none;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+   border-radius: 10px;
+   font-weight: bold;
+   width: 130px; // why does this not work for my add dish button?
+   text-align: center;
+}
+
+.main_button:hover {
+  color: white;
+}
+
+.secondary_button {
+  padding: 10px 30px;
+  width: 130px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+
+
+.secondary_button:hover{
+  color: white;
+}
+
+
+.view_as_guest_button {
+  padding: 10px 15px;
+  background-color: #909090;
+  color: white;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 130px;
+}
+
+.view_as_guest_button:hover {
+  color: white;
+}
+
+.trashcan {
+  color: #909090;
+  font-size: 20px;
+}
+
+.magglas {
+  color: #909090;
+  font-size: 40px;
+}
+
+.trashcan:hover {
+  color: black;
+}
+
+.magglas:hover {
+  color: black;
+}
+
+.trashcan-div {
+  position: absolute;
+  right: -23px;
+  top: 225px;
+  width: 40px;
+  font-size: 20px;
+}
+
+.magglass-div{
+  position: absolute;
+  right: 685px;
+  top: 210px;
+  width: 40px;
+}

@@ -1,16 +1,62 @@
-<h1><%=@menu.name%></h1>
-<br>
-<% @dishes.each do |dish|%>
-  <div class = "card">
-    <h3><%=dish.name%></h3>
-    <p><%=dish.description%></p>
-    <p>Price: <%=dish.price%></p>
-    <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish) %>
-    <%=link_to "Delete",  restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>  </div>
-<% end%>
+<div class="center">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class = "title">
+      <h1><%=@menu.name%> - <%=@menu.category%></h1>
+      <h3><%=@menu.restaurant.name%></h3>
+    </div>
+    <%= link_to "Add dish", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button" %>
+  </div>
+  <% @dishes.each do |dish| %>
+      <div class="cards-dishes d-flex ">
+        <div class=" card_picture">
+          <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
+           <%# data-bs-ride to data-ride and added data-interval = "false" %>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card_picture_borders picture-dish-card', height: 300, width: 400, crop: :fill %>
+              </div>
+              <% dish.photos.drop(1).each do |photo| %>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400, crop: :fill %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
 
-<br>
-<br>
-<br>
-<%= link_to "Add dish", new_restaurant_menu_dish_path(@menu.restaurant, @menu) %>
+        <div class="col">
+          <div class="card-block px-2 text-card-dishes">
+            <h4><%=dish.name%></h4>
+            <p><%=dish.description%></p>
+            <p>Price: <%=dish.price%></p>
+            <div class = "buttons_in_card">
+              <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary_button" %>
+            </div>
+            <div class = "trashcan-div">
+              <%=link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
+                <i class="fa-solid fa-trash trashcan"></i>
+              <% end %>
+            </div>
+          </div>
+         </div>
+      </div>
+  <% end%>
+
+  <br>
+  <br>
+  <br>
+  <div class = "d-flex justify-content-between align-items-center">
+    <%= link_to "View as guest", scanned_path(restaurant_id: @menu.restaurant), class: "view_as_guest_button"%>
+    <%# <%= link_to "Generate QR", restaurant_id_menu_id_qr_code_generator_path(params[:restaurant_id], params[:menu_id]), class: "main_button"%>
+    <%= link_to "Generate QR", qr_path(restaurant_id: @menu.restaurant), class: "main_button"%>
+    <%# format is what comes after . You have to pass it as hash, so that it comes after the ?: query permitter%>
+  </div>
 </div>

@@ -1,16 +1,27 @@
-
-<h1>The menus of <%=@restaurant.name%></h1>
-<% @menus.each do |menu|%>
-  <div class = "card">
-    <h3><%=menu.name%></h3>
-    <p><%=menu.category%></p>
-    <%=link_to "Edit", edit_restaurant_menu_path(@restaurant.id, menu.id) %>
-    <%=link_to "Delete", restaurant_menu_path(@restaurant.id, menu.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    <%=link_to "See menu", restaurant_menu_path(@restaurant.id, menu.id) %>
+<div class = "main_container">
+  <h1>The menus of <%=@restaurant.name%></h1>
+  <div class=cards-grid-index>
+    <% @menus.each do |menu|%>
+      <div class = "card cards-menus">
+        <div class = "card-body ">
+          <h3><%=menu.name%></h3>
+          <p> Category: <%=menu.category%></p>
+          <div class = "buttons-cards-placing">
+            <%=link_to "Edit", edit_restaurant_menu_path(@restaurant.id, menu.id), class: "secondary_button" %>
+            <div class = "trashcan-div-menus">
+              <%=link_to restaurant_menu_path(@restaurant.id, menu.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
+                <i class="fa-solid fa-trash trashcan"></i>
+              <% end %>
+            </div>
+            <%=link_to "See menu", restaurant_menu_path(@restaurant.id, menu.id), class: "main_button" %>
+          </div>
+        </div>
+      </div>
+    <% end%>
   </div>
-<% end%>
-<br>
-<br>
-<br>
-<%= link_to "Add menu", new_restaurant_menu_path(@restaurant.id) %>
+  <br>
+  <br>
+  <br>
+  <%= link_to "Add menu", new_restaurant_menu_path(@restaurant.id), class: "main_button" %>
+  </div>
 </div>
