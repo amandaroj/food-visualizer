@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard"
+  get "/profile", to: "pages#profile"
+  get "/profile/edit", to: "pages#profile_edit"
+  patch "/profile/update", to: "pages#profile_update"
   get "/scanned", to: "pages#scanned"
   get "menus/:menu_id/dishes", to: "pages#dishes", as: "dishes"
 

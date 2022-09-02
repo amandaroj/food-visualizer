@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def profile
+    @user = current_user
+  end
+
   def dashboard
     @restaurants = current_user.restaurants
     # listen to what restaurant is clicked and define @restaurant
@@ -28,7 +32,7 @@ class PagesController < ApplicationController
 
     if params[:query].present?
       sql_query = "name ILIKE ? AND menu_id = ?" # doesn't make sense I don't have @dish.menu yet
-      @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id]) # ? is for passing secret values 
+      @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id]) # ? is for passing secret values
     else
       @dishes = Dish.where(menu: @menu)
     end
