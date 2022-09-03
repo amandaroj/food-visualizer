@@ -1,22 +1,35 @@
-<div class=container>
+<!-------------------BANNER----------------------------->
 
-  <div class="header-text">
-    <h1>Food Visualizer</h1>
-    <h3>Let your guests see your food</h3>
-  </div>
-
-  <br>
-
-  <% if current_user %>
-  <p> </p>
-  <% else %>
-    <div class="btns">
-    <%= link_to 'Sign Up',  new_user_registration_path, class: "main_button"%>
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="header-text">
+          <h1>Food Visualizer</h1>
+        </div>
+        <div>
+          <h3>Let your guests see your food</h3>
+        </div>
+        <div class="col-md-6">
+          <% if current_user %>
+          <p> </p>
+          <% else %>
+            <div class="btns">
+            <%= link_to 'Sign Up',  new_user_registration_path, class: "main_button"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <%= image_tag("foodillustration.png", class:"img-fluid")%>
+      </div>
     </div>
-  <% end %>
+  </div>
+     <%= image_tag("wave1", class:"img-fluid", class:"bottom-img")%>
+</section>
 
-  <br>
 
+ <section id="card">
   <div class=cards-grid-index>
         <div class="card card-home-page" style="width: 18rem;">
           <%= cl_image_tag("v1662129143/FoodVisualizer/eaters-collective-i_xVfNtQjwI-unsplash_utcxa8",crop: :fill, class: "card_borders")%>
@@ -42,4 +55,4 @@
           </div>
         </div>
     </div>
-  </div>
+</section>
