@@ -16,7 +16,7 @@
             <p><%=restaurant.location%></p>
           </div>
             <div class="card-button-menus">
-              <%= link_to "See menus", restaurant_menus_path(restaurant.id), class: "secondary_button card-button-see-menus me-0"%>
+              <%= link_to "See menus", restaurant_path(restaurant.id), class: "secondary_button card-button-see-menus me-0"%>
             </div>
         </div>
         <div class="card-button p-0">
