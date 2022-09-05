@@ -19,6 +19,8 @@ class PagesController < ApplicationController
     # The QR code tells you: the restaurant_id
     # @id = 15
     @restaurant = Restaurant.find(params[:restaurant_id])
+    # every time you execute the next line: 
+    Restaurant.increment_counter(:scans_count, @restaurant.id)
     @menus = Menu.where(restaurant_id: @restaurant.id)
     # then you want to see the restaurants#show and klick the menu you want to see
     # this could be a pages#menus ()
