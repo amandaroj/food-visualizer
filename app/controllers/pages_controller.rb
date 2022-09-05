@@ -39,5 +39,50 @@ class PagesController < ApplicationController
       @dishes = Dish.where(menu: @menu)
     end
   end
+
+  def reviews_owner
+    # ALL REVIEWS
+    @all_reviews = Review.all
+
+    # AVERAGE RATING ALL DISHES
+    total = 0
+    @all_reviews.size
+    @all_reviews.each do |review|
+      total = total + review.rating.to_i
+    end
+    @average_rating_all_dishes = total/@all_reviews.size
+
+    # ALL REVIEWS PER DISH
+    input = params[:query].capitalize if params[:query] != nil
+    if input.present?
+      @dish = Dish.where(name: input).first # problematic if one owner has the same dish on different menus and restaurants
+      if @dish != nil
+      @all_reviews_one_dish = Review.where(dish_id: @dish.id)
+      total_one_dish = 0
+      @all_reviews_one_dish.each do |review|
+        total_one_dish = total_one_dish + review.rating
+      end
+        @average_rating_one_dish = total_one_dish / @all_reviews_one_dish.size
+      end
+    end
+
+    # BEST AND WORST DISH
+    @dishes = Dish.all
+    @best_dish = @dishes.sort_by(&:average_rating).last
+    @worst_dish = @dishes.sort_by(&:average_rating).first
+  end
+
+
+    def review_guest
+    end
+
 end
-# @dishes = Dish.where(menu: @menu && "name ILIKE ?", "%#{params[:query]}%")
+
+  # @all_reviews_this_dish = Review.where(dish_id: dish.id)
+  # @all_reviews_this_dish.each do |review|
+  #   total_this_dish = 0
+  #   total_this_dish = total_this_dish + review.rating
+  #   @average_rating_this_dish = total_this_dish / @all_reviews_this_dish.size
+  # end
+  #   dish.update(average_rating: @average_rating_this_dish)
+  # end
