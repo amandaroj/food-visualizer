@@ -5,7 +5,7 @@
       <h3><%= @menu.restaurant.name %></h3>
     </div>
   </div>
-
+  
   <%= form_with url: "", method: :get, class: "d-flex" do %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
     <%= submit_tag "Search", class: "main_button" %>
@@ -42,7 +42,7 @@
             <p><%=dish.description%></p>
             <p>Price: <%=dish.price%></p>
             <div class = "buttons_in_card">
-              <%=link_to "Review", root_path, class: "secondary_button" %>
+              <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary_button" %>
             </div>
             <div class = "magglass-div">
               <%=link_to root_path do%>
