@@ -1,8 +1,9 @@
 // Specific CSS for your home-page
+
 .header-text {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 40px;
+  font-weight: 600px;
+  margin-top: 100px;
 }
 .btns {
   display:flex;
@@ -11,17 +12,39 @@
 .cards-grid-index {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 30px 50px;
-  margin: 40px auto;
-  width: 80vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+  margin: 40px 70px;
 }
 
 .card-home-page {
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 300px;
 }
 
 .card_borders {
   border-radius: 15px 15px 0px 0px ;
+}
+
+.card-body {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.qr-width {
+  width: 200px;
+}
+
+@media(max-width: 1080px) {
+  .cards-grid-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards-grid-index {
+    grid-template-columns: 1fr;
+  }
 }
