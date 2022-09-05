@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/scanned", to: "pages#scanned"
   get "menus/:menu_id/dishes", to: "pages#dishes", as: "dishes"
   get "reviews", to: "pages#reviews_owner"
+  get "preview_scanned", to: "pages#preview_scanned"
+  get "menus/:menu_id/preview_dishes", to: "pages#preview_dishes", as: "preview_dishes"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :restaurants do

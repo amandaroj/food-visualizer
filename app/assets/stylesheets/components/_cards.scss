@@ -141,4 +141,12 @@
 
 .card-index-restaurants {
   min-width: auto;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.card-button-menus {
+  align-items: center;
+  display: flex;
+  text-align: center;
 }
