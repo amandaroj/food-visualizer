@@ -10,11 +10,16 @@
       <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
       <% end %>
 
+
       <%= link_to scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
       <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
       <% end %>
+    <%= link_to preview_scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
+    <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
+    <% end %>
 
-      <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
+    <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
+
       </div>
 
   </div>
