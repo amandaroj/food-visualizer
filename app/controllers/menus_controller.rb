@@ -3,7 +3,6 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     @dishes = Dish.where(menu_id: @menu.id)
   end
-  
 
   def new
     @menu = Menu.new
