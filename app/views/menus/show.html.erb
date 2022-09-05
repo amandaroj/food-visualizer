@@ -1,5 +1,4 @@
 
-
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <div class = "title">
@@ -11,20 +10,6 @@
       <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do%>
       <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
       <% end %>
-
-  <div class="d-flex justify-content-between align-items-center">
-    <div class = "title">
-      <h1><%=@menu.name%></h1>
-      <h4><%=@menu.restaurant.name%></h4>
-    </div>
-    <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47 button-47-menupage" do%>
-    <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
-    <% end %>
-
-    <%= link_to preview_scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
-    <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
-    <% end %>
-
 
       <%= link_to scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
       <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
