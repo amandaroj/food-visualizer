@@ -11,8 +11,11 @@ class PagesController < ApplicationController
   def dashboard
     @restaurants = current_user.restaurants
     # listen to what restaurant is clicked and define @restaurant
-    @restaurant = 41
-    @menus = Menu.where(restaurant_id: @restaurant)
+    # I have all the restaurants, per restaurant I need to find all menus
+    @menus = ""
+    @restaurants.each do |restaurant|
+      @menus = Menu.where(restaurant_id: restaurant.id)
+    end
   end
 
   def scanned

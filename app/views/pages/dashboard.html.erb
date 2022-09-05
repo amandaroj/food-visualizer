@@ -1,3 +1,8 @@
+<%= @restaurants.first.id%>
+
+
+
+
 <div class="dashboard-container">
   <%# <h1>Dashboard</h1> %>
 
@@ -17,6 +22,7 @@
             <h5><%= restaurant.name %></h5>
             <p><%= restaurant.owner %></p>
             <p>📍 <%= restaurant.location %></p>
+            <%menus = Menu.where(restaurant_id: restaurant.id)%>
           </div>
 <%# Accordion %>
           <div class="accordion" id="accordion-<%= restaurant.id %>">
@@ -26,7 +32,7 @@
                   See menus
                 </button>
               </h2>
-              <% @menus.each do |menu|%>
+              <% menus.each do |menu|%>
                 <div id="collapse-<%=restaurant.id %>" class="accordion-collapse collapse in" aria-labelledby="heading-<%=restaurant.id%>" data-bs-parent="#accordion-<%=restaurant.id%>">
                   <div class="accordion-body">
                   <%=link_to "#{menu.name}", restaurant_menu_path(menu.restaurant, menu)%>
