@@ -1,5 +1,4 @@
 <!-------------------BANNER----------------------------->
-
 <section id="banner">
   <div class="container">
     <div class="row">
@@ -10,22 +9,22 @@
         <div>
           <h3>Let your guests see your food</h3>
         </div>
+        <br>
         <div class="col-md-6">
           <% if current_user %>
           <p> </p>
           <% else %>
             <div class="btns">
-            <%= link_to 'Sign Up',  new_user_registration_path, class: "main_button"%>
+            <%= link_to 'Sign Up',  new_user_registration_path, class: "button-50"%>
             </div>
           <% end %>
         </div>
       </div>
-      <div class="col-md-6 text-center">
-        <%= image_tag("foodillustration.png", class:"img-fluid")%>
+      <div class="col-md-6 text-center img-home">
+        <%= image_tag("homepageimage.png", class:"img-fluid img-banner")%>
       </div>
     </div>
   </div>
-     <%= image_tag("wave1", class:"img-fluid", class:"bottom-img")%>
 </section>
 
 
