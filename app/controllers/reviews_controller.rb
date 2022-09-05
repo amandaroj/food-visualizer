@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  def index
-    @dish = Dish.find(params[:dish_id])
-    @reviews = @dish.reviews
-  end
+  # def index
+  #   @dish = Dish.find(params[:dish_id])
+  #   @reviews = @dish.reviews
+  # end
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -12,13 +12,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    # @restaurant = Restaurant.find(params[:restaurant_id])
     @menu = Menu.find(params[:menu_id])
     @dish = Dish.find(params[:dish_id])
     @review = Review.new(review_params)
-    @review.dish = @dish
+    @review.dish_id = @dish.id
     if @review.save
-      redirect_to restaurant_menu_dish_reviews_path(@restaurant, @menu, @dish)
+      Dish.update(@dish.id, :average_rating => ((@dish.average_rating + @review.rating)/Review.where(dish: @dish).size))
+      redirect_to dishes_path(@menu.id)
     else
       render :new, state: :unprocessable_entities
     end

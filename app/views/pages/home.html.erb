@@ -32,26 +32,43 @@
  <section id="card">
   <div class=cards-grid-index>
         <div class="card card-home-page" style="width: 18rem;">
-          <%= image_tag("photo1.jpg", crop: :fill, class: "card_borders")%>
+          <%= image_tag("upload.png", crop: :fill, class: "card_borders")%>
           <div class="card-body">
-            <h5 class="card-title">Upload Photos for Your Menu Items</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <div>
+              <h5 class="card-title">Upload Photos for Your Menu</h5>
+              <p class="card-text">Show your food.</p>
+            </div>
           </div>
         </div>
 
         <div class="card card-home-page" style="width: 18rem;">
-          <%= image_tag("photo2.jpg", crop: :fill, class: "card_borders")%>
+          <div class="text-center" style="margin-top: 2rem;">
+            <%= image_tag("frame.png", crop: :fill, class: "card_borders qr-width")%>
+          </div>
+          <div class="scan-viewport">
+            <div class="scan-indicator"></div>
+            <div class="scan-container">
+              <div class="corner left-top"></div>
+              <div class="corner left-bottom"></div>
+              <div class="corner right-top"></div>
+              <div class="corner right-bottom"></div>
+            </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Guests Scan the QR Code and See Your Food</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <div>
+              <h5 class="card-title">Generate a QR Code</h5>
+              <p class="card-text">Allow your guests to see your food.</p>
+            </div>
           </div>
         </div>
 
         <div class="card card-home-page" style="width: 18rem;">
-          <%= image_tag("photo3.jpg", crop: :fill, class: "card_borders")%>
+          <%= image_tag("update.png", crop: :fill, class: "card_borders")%>
           <div class="card-body">
-            <h5 class="card-title">Easy to Edit and Upload Photos</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <div >
+              <h5 class="card-title">Make your guests happy </h5>
+              <p class="card-text">Meet your guests expectations.</p>
+            </div>
           </div>
         </div>
     </div>
