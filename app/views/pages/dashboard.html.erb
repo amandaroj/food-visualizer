@@ -1,8 +1,3 @@
-<%= @restaurants.first.id%>
-
-
-
-
 <div class="dashboard-container">
   <%# <h1>Dashboard</h1> %>
 
@@ -58,19 +53,30 @@
 
   <div class="d-flex justify-content-between">
     <div class="board-reviews me-3">
-      <h2>Reviews</h2>
-      <h5> > Burrito (3 stars) </h5>
-      <p>I loved the crispy tortilla, but the guacomole was a bit tasteless.</p>
-      <h5> > Pizza (4 stars)</h5>
-      <p>Very nice authentic pizza, I would add basil to make it perfect.</p>
-      <%=link_to "All reviews", reviews_path%>
-
+      <%if @reviews.empty?%>
+        <p>No reviews yet.</p>
+      <%else %>
+        <h2>Reviews</h2>
+        <% @reviews.each do |review| %>
+        <h5>><%=review.dish.name%> (<%=review.rating%> stars) </h5>
+        <p><%=review.content%></p>
+        <% end %>
+        <%=link_to "All reviews", reviews_path, class: "main_button"%>
+      <%end%>
     </div>
 
     <div class="board-alerts ms-3">
       <h2>Alerts</h2>
-      <h5> > Burrito got 1 star on 21 aug!</h5>
-      <h5> > Brownie got 1 star on 21 aug!</h5>
+      <%if @reviews.empty?%>
+        <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
+      <%else %>
+        <% @reviews.each do |review| %>
+          <%if review.rating <= 2%>
+            <h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at%>!</h5>
+            <p> review: <%=review.content%></p>
+          <%end%>
+        <%end%>
+      <%end%>
     </div>
   </div>
 </div>

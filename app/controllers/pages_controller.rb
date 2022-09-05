@@ -16,18 +16,14 @@ class PagesController < ApplicationController
     @restaurants.each do |restaurant|
       @menus = Menu.where(restaurant_id: restaurant.id)
     end
+    @reviews = Review.all
   end
 
   def scanned
-    # The QR code tells you: the restaurant_id
-    # @id = 15
     @restaurant = Restaurant.find(params[:restaurant_id])
     # every time you execute the next line:
     Restaurant.increment_counter(:scans_count, @restaurant.id)
     @menus = Menu.where(restaurant_id: @restaurant.id)
-    # then you want to see the restaurants#show and klick the menu you want to see
-    # this could be a pages#menus ()
-    # then you want the menus#show page
   end
 
   def preview_scanned
@@ -95,12 +91,3 @@ class PagesController < ApplicationController
     end
 
 end
-
-  # @all_reviews_this_dish = Review.where(dish_id: dish.id)
-  # @all_reviews_this_dish.each do |review|
-  #   total_this_dish = 0
-  #   total_this_dish = total_this_dish + review.rating
-  #   @average_rating_this_dish = total_this_dish / @all_reviews_this_dish.size
-  # end
-  #   dish.update(average_rating: @average_rating_this_dish)
-  # end
