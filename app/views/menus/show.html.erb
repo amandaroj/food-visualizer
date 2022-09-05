@@ -1,16 +1,4 @@
 
-
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class = "title">
-        <h1><%=@menu.name%></h1>
-        <h4><%=@menu.restaurant.name%></h4>
-      </div>
-      <div class="btns-menu-dishes">
-      <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do%>
-      <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
-      <% end %>
-
   <div class="d-flex justify-content-between align-items-center">
     <div class = "title">
       <h1><%=@menu.name%></h1>
@@ -24,16 +12,10 @@
     <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
     <% end %>
 
+    <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
 
-      <%= link_to scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
-      <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
-      <% end %>
-
-      <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
-      </div>
 
   </div>
-
   <% @dishes.each do |dish| %>
       <div class="cards-dishes d-flex">
         <div class="card-picture">
@@ -67,9 +49,8 @@
 
         <div class="col">
           <div class="card-block px-2 text-card-dishes">
-            <h3><%=dish.name%></h3>
-            <p class="dish-category"><%=@menu.category%></p>
-            <p ><%=dish.description%></p>
+            <h4><%=dish.name%></h4>
+            <p><%=dish.description%></p>
             <p>Price: <%=dish.price%></p>
             <div class = "buttons_in_card">
               <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary_button" %>
@@ -83,4 +64,11 @@
          </div>
       </div>
   <% end%>
+
+  <br>
+  <br>
+  <br>
+  <div class = "d-flex justify-content-between align-items-center">
+    <%= link_to "Generate QR", qr_path(restaurant_id: @menu.restaurant), class: "main_button"%>
+    <%# format is what comes after . You have to pass it as hash, so that it comes after the ?: query permitter%>
   </div>

@@ -9,28 +9,25 @@ $headers-font: 'Anek Bangla', sans-serif;
 h1 { //big header, used for: Dashboard, Your menus in restaurants#show and Your restaurants in restaurants#index and in menus#show Menu title
 //  font-weight: 700 !important; // why does this not show?
  font-size: 48px;
+
 }
 
 h2 {
   font-weight: light;
   font-size: 36px;
+
 }
 
 h3 { //sub header
   font-weight: light;
   font-size: 24px;
-  color: black;
+
 }
 
 h4 { //small header for the names of restaurants, menus and dishes in the cards & buttons/links
-color: black;
-}
-
-h6 {
-  font-weight: 500;
-  font-size: 20px;
-  color: #7e7e7e;
-  ;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  color: #969696;
 }
 
 p {
