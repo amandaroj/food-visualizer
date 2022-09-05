@@ -16,6 +16,10 @@ UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: 
 
 m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id)
 Dish.create!(name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
+Dish.create!(name: "Pizza", menu_id: m.id, description: "Pizza with tomato sauce and other stuff", price: 9)
+Dish.create!(name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 5)
+
+
 
 a = Restaurant.create!(name: "Local Kitchen", owner: "Jesus", location: "Baixa Chiado")
 b = User.create!(email: "localkitchen@gmail.com", password: "6897456891")
