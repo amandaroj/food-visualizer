@@ -27,6 +27,12 @@ class PagesController < ApplicationController
     # then you want the menus#show page
   end
 
+  def preview_scanned
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    Restaurant.increment_counter(:scans_count, @restaurant.id)
+    @menus = Menu.where(restaurant_id: @restaurant.id)
+  end
+
   def dishes
     @menu = Menu.find(params[:menu_id])
 
@@ -35,6 +41,17 @@ class PagesController < ApplicationController
     if params[:query].present?
       sql_query = "name ILIKE ? AND menu_id = ?" # doesn't make sense I don't have @dish.menu yet
       @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id]) # ? is for passing secret values
+    else
+      @dishes = Dish.where(menu: @menu)
+    end
+  end
+
+  def preview_dishes
+    @menu = Menu.find(params[:menu_id])
+    @dishes = Dish.where(menu: @menu)
+    if params[:query].present?
+      sql_query = "name ILIKE ? AND menu_id = ?"
+      @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id])
     else
       @dishes = Dish.where(menu: @menu)
     end

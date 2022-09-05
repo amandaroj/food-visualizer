@@ -41,11 +41,13 @@
     </div>
 
 <%# PAGE HITS %>
-    <div class="board-visits">
-      <h5>Visits today</h5>
-      <h5>
-      <i class="fa-solid fa-mobile-screen-button phone"></i>
-    </div>
+      <%@restaurants.each do |restaurant| %>
+        <div class="board-visits">
+          <h2>QRs scanned</h2>
+          <h5><%=restaurant.name%>: <%=restaurant.scans_count%></h5>
+          <i class="fa-solid fa-mobile-screen-button phone"></i>
+        </div>
+      <%end%>
   </div>
 
   <div class="d-flex justify-content-between">
