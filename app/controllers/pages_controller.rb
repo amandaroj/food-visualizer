@@ -35,9 +35,7 @@ class PagesController < ApplicationController
 
   def dishes
     @menu = Menu.find(params[:menu_id])
-
     @dishes = Dish.where(menu: @menu)
-
     if params[:query].present?
       sql_query = "name ILIKE ? AND menu_id = ?" # doesn't make sense I don't have @dish.menu yet
       @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id]) # ? is for passing secret values
@@ -67,7 +65,7 @@ class PagesController < ApplicationController
     @all_reviews.each do |review|
       total = total + review.rating.to_i
     end
-    @average_rating_all_dishes = total/@all_reviews.size
+    @average_rating_all_dishes = total / @all_reviews.size
 
     # ALL REVIEWS PER DISH
     input = params[:query].capitalize if params[:query] != nil

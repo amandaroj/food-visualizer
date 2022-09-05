@@ -5,8 +5,8 @@
       <h3><%= @menu.restaurant.name %></h3>
     </div>
   </div>
-  
-  <%= form_with url: "", method: :get, class: "d-flex" do %>
+
+  <%= form_with url: dishes_path(@menu), method: :get, class: "d-flex" do %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
     <%= submit_tag "Search", class: "main_button" %>
   <% end %>
