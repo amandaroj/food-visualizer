@@ -3,28 +3,36 @@
     <h1>Your Restaurants</h1>
   </div>
 
-  <div class="cards-grid-dashboard">
+  <div class="d-flex justify-content-between">
+    <div class="board-restaurants-index mb-3">
     <% @restaurants.each do |restaurant|%>
-    <div class = "card cards-dashboard" style="width: 18rem;">
+    <div class = "card-index-restaurants card me-4">
       <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
-      <div class="card-body">
-        <div>
-          <h3><%=restaurant.name%></h3>
-          <p><%=restaurant.owner%></p>
-          <p><%=restaurant.location%></p>
+      <div class="p-3">
+        <div class="card-body p-0 mb-3">
+          <div>
+            <h3><%=restaurant.name%></h3>
+            <p><%=restaurant.owner%></p>
+            <p><%=restaurant.location%></p>
+          </div>
+            <div class="card-button-menus">
+              <%= link_to "See menus", restaurant_menus_path(restaurant.id), class: "secondary_button card-button-see-menus me-0"%>
+            </div>
         </div>
-        <%# <div> %>
-        <%# <%= link_to "See menus", restaurant_menus_path(restaurant.id), class: "secondary_button" %>
-        <%# </div> %>
-      </div>
-      <div class="card-button">
-        <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main_button card-button-edit"%>
-        <%=link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "secondary_button card-button-delete"%>
+        <div class="card-button p-0">
+          <div>
+            <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main_button card-button-edit m-0"%>
+          </div>
+          <div>
+            <%=link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "secondary_button card-button-delete m-0"%>
+          </div>
+        </div>
       </div>
     </div>
     <% end%>
+    </div>
   </div>
     <br>
     <br>
-    <%=link_to "Add restaurant", new_restaurant_path, class: "main_button" %>
+    <%=link_to "Add restaurant", new_restaurant_path, class: "main_button card-button-add-restaurant" %>
 </div>

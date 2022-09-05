@@ -1,0 +1,69 @@
+
+
+
+
+
+
+
+
+
+<div class = "m-4">
+  <div class="d-flex justify-content-between">
+    <div class="cards-reviews me-3" id="cards-reviews-search">
+      <h2>All reviews per dish</h2>
+      <%= form_with url: "", method: :get do %>
+      <div class = "d-flex">
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
+        <%= submit_tag "Search", class: "main_button" %>
+    </div>
+      <% if @dish != nil %>
+        <p><strong>The average rating of this dish is: <%=@average_rating_one_dish%> stars<strong></p>
+        <% @all_reviews_one_dish.each do |review| %>
+          <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
+          <p><%= review.content %></p>
+        <% end%>
+      <% elsif @dish === nil && params[:query] != nil %>
+        <p>This dish does not exist.</p>
+      <% end%>
+    <% end %>
+    </div>
+
+    <div>
+      <div class="cards-reviews align-text-reviews">
+        <h2>Average:</h2>
+        <i class="fa-sharp fa-solid fa-star icon-reviews star"></i>
+        <h4><%=@average_rating_all_dishes%> stars</h4>
+        <p>This is the average rating of all your dishes.</p>
+      </div>
+
+      <div class = "d-flex">
+
+        <div class = "cards-reviews me-3 align-text-reviews">
+          <h2>Lowest average</h2>
+          <i class="fa-solid fa-arrow-trend-down icon-reviews"></i>
+          <h4><%=@worst_dish.name%>: <%=@worst_dish.average_rating%> stars</h4>
+          <p>This is the dish which has the lowest average rating.</p>
+        </div>
+        <div class = "cards-reviews align-text-reviews">
+          <h2>Highest average</h2>
+          <i class="fa-solid fa-arrow-trend-up icon-reviews"></i>
+          <h4><%=@best_dish.name%>: <%=@best_dish.average_rating%> stars</h4>
+          <p>This is the dish which has the lowest average rating.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+    <div class="cards-reviews">
+      <h2>All reviews</h2>
+      <br>
+        <%# import all the reviews here and sort them by created at date %>
+        <% @all_reviews.each do |review| %>
+          <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
+          <p><%= review.content %></p>
+        <% end%>
+    </div>
+
+</div>

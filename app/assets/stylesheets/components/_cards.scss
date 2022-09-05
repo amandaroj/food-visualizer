@@ -17,6 +17,36 @@
   height: 390px
 }
 
+.cards-reviews{
+  margin-top: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 390px;
+  padding: 15px;
+  width: auto;
+  height: auto;
+}
+
+#cards-reviews-search{
+  width: 80%;
+}
+
+.icon-reviews {
+  font-size: 100px;
+  color: #F58222;
+}
+
+.star {
+  margin-bottom: 15px;
+}
+
+.align-text-reviews{
+  // justify-content: center;
+  // align-items: center;
+  text-align: center;
+}
+
 .photos-cards-dashboard {
   border-radius: 15px 15px 0px 0px;
   height: 250px;
@@ -94,6 +124,21 @@
 
 .card-button {
   display: flex;
-  justify-content: center;
-  margin: -14px 0 10px 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 10px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.card-index-restaurants {
+  min-width: auto;
 }
