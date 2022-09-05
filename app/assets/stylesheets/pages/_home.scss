@@ -1,9 +1,13 @@
 // Specific CSS for your home-page
 
+h3 {
+  color:white;
+}
 .header-text {
   font-size: 40px;
   font-weight: 600px;
   margin-top: 100px;
+  color: white;
 }
 .btns {
   display:flex;
@@ -25,6 +29,12 @@
 
 .card_borders {
   border-radius: 15px 15px 0px 0px ;
+}
+
+
+.img-home {
+  height: 400px;
+  width: 500px;
 }
 
 .card-body {
