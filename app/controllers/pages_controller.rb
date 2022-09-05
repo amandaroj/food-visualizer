@@ -28,7 +28,6 @@ class PagesController < ApplicationController
 
   def preview_scanned
     @restaurant = Restaurant.find(params[:restaurant_id])
-    Restaurant.increment_counter(:scans_count, @restaurant.id)
     @menus = Menu.where(restaurant_id: @restaurant.id)
   end
 
