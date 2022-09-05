@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def dashboard
     @restaurants = current_user.restaurants
     # listen to what restaurant is clicked and define @restaurant
-    @restaurant = 17
+    @restaurant = 41
     @menus = Menu.where(restaurant_id: @restaurant)
   end
 
@@ -19,12 +19,18 @@ class PagesController < ApplicationController
     # The QR code tells you: the restaurant_id
     # @id = 15
     @restaurant = Restaurant.find(params[:restaurant_id])
-    # every time you execute the next line: 
+    # every time you execute the next line:
     Restaurant.increment_counter(:scans_count, @restaurant.id)
     @menus = Menu.where(restaurant_id: @restaurant.id)
     # then you want to see the restaurants#show and klick the menu you want to see
     # this could be a pages#menus ()
     # then you want the menus#show page
+  end
+
+  def preview_scanned
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    Restaurant.increment_counter(:scans_count, @restaurant.id)
+    @menus = Menu.where(restaurant_id: @restaurant.id)
   end
 
   def dishes
@@ -35,6 +41,17 @@ class PagesController < ApplicationController
     if params[:query].present?
       sql_query = "name ILIKE ? AND menu_id = ?" # doesn't make sense I don't have @dish.menu yet
       @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id]) # ? is for passing secret values
+    else
+      @dishes = Dish.where(menu: @menu)
+    end
+  end
+
+  def preview_dishes
+    @menu = Menu.find(params[:menu_id])
+    @dishes = Dish.where(menu: @menu)
+    if params[:query].present?
+      sql_query = "name ILIKE ? AND menu_id = ?"
+      @dishes = Dish.where(sql_query, "%#{params[:query]}%", params[:menu_id])
     else
       @dishes = Dish.where(menu: @menu)
     end
