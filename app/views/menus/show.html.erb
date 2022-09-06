@@ -2,9 +2,10 @@
 <div class="container">
   <div class="d-flex justify-content-between align-items-center">
     <div class = "title">
+      <br>
       <h1><%=@menu.name%></h1>
 
-      <h4><%=@menu.restaurant.name%></h4>
+      <h4 class="fw-light text-secondary"><%=@menu.restaurant.name%></h4>
     </div>
     <div class="btns-menu-dishes">
       <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do%>
@@ -65,7 +66,7 @@
             <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary_button" %>
             <span class="fw-bold fs-5 me-1"><%= dish.price %> €</span>
           </div>
-          <div class="trashcan position-absolute fs-5 top-0 end-0 mt-2 me-3 badge rounded-4 text-bg-light">
+          <div class="trashcan position-absolute fs-5 top-0 end-0 mt-2 me-3 badge rounded-4 trash-icon-color">
             <%= link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
               <i class="fa-solid fa-trash"></i>
             <% end %>
