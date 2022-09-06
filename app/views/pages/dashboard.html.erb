@@ -61,7 +61,7 @@
         <h5>><%=review.dish.name%> (<%=review.rating%> stars) </h5>
         <p><%=review.content%> (created at <%=review.created_at.strftime('%F')%>)</p>
         <% end %>
-        <%=link_to "All reviews", reviews_path, class: "main_button"%>
+        <%=link_to "All reviews", reviews_path, class: "main-button"%>
       <%end%>
     </div>
 

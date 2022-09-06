@@ -12,12 +12,10 @@
   display:flex;
   justify-content: center;
 }
-.cards-grid-index {
+.menu-cards {
   display: grid;
-  justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 50px;
-  margin: 40px 70px;
+  grid-gap: 10px;
 }
 
 .card-home-page {
@@ -47,13 +45,13 @@
 }
 
 @media(max-width: 1080px) {
-  .cards-grid-index {
+  .menu-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media(max-width: 768px) {
-  .cards-grid-index {
+  .menu-cards {
     grid-template-columns: 1fr;
   }
 }

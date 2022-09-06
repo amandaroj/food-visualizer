@@ -17,7 +17,7 @@
       <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
       <% end %>
 
-      <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
+      <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main-button"%>
     </div>
   </div>
   <div class="dish-cards mt-4">
@@ -58,7 +58,7 @@
 
         <div class="d-relative flex-grow-1">
           <h3><%=dish.name%></h3>
-          <span class="badge rounded-pill fs-6 dish-category mb-2">
+          <span class="badge rounded-pill fs-6 category-pill mb-2">
             <%= @menu.category.capitalize %>
           </span>
           <p class="mb-1"><%= dish.description %></p>

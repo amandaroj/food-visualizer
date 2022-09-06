@@ -23,7 +23,7 @@
         </div>
         <div class="card-button p-0">
           <div>
-            <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main_button m-0"%>
+            <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main-button m-0"%>
           </div>
           <div>
             <%= link_to restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-btn" do%>
@@ -38,5 +38,5 @@
   </div>
     <br>
     <br>
-    <%=link_to "Add restaurant", new_restaurant_path, class: "main_button card-button-add-restaurant" %>
+    <%=link_to "Add restaurant", new_restaurant_path, class: "main-button card-button-add-restaurant" %>
 </div>
