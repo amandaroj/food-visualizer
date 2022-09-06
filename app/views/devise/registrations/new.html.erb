@@ -5,9 +5,15 @@
       data: {turbo: false}) do |f| %>
       <%= f.error_notification %>
     <div class="form-inputs">
-      <%= f.input :email,
+      <%= f.input :first_name,
                   required: true,
                   autofocus: true,
+                  input_html: { autocomplete: "first-name", class: "form-radius" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "last-name", class: "form-radius" } %>
+      <%= f.input :email,
+                  required: true,
                   input_html: { autocomplete: "email", class: "form-radius" } %>
       <%= f.input :password,
                   required: true,
