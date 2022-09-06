@@ -17,7 +17,6 @@ class PagesController < ApplicationController
       @menus = Menu.where(restaurant_id: restaurant.id)
     end
     @reviews = Review.all
-    
   end
 
   def scanned
