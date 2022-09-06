@@ -49,8 +49,8 @@
 
     <div class = "d-flex flex-row">
       <div class="cards-reviews graph  me-3">
-      <h2>Average rating per dish</h2>
-      <%= bar_chart Dish.group(:name).sum(:average_rating), colors: ["#F58222"] %>
+        <h2>Average rating per dish</h2>
+        <%= bar_chart Dish.group(:name).sum(:average_rating), colors: ["#F58222"] %>
       </div>
 
       <div class="cards-reviews all-reviews ">
