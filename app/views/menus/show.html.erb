@@ -29,11 +29,11 @@
             <%# data-bs-ride to data-ride and added data-interval = "false" %>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400, crop: :fill %>
+                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400 %>
                 </div>
                 <% dish.photos.drop(1).each do |photo| %>
                   <div class="carousel-item">
-                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400 %>
                   </div>
                 <% end %>
               </div>
