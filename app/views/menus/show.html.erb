@@ -1,39 +1,39 @@
 
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class = "title">
-        <h1><%=@menu.name%></h1>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class = "title">
+      <h1><%=@menu.name%></h1>
 
-        <h4><%=@menu.restaurant.name%></h4>
-      </div>
-      <div class="btns-menu-dishes">
+      <h4><%=@menu.restaurant.name%></h4>
+    </div>
+    <div class="btns-menu-dishes">
       <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do%>
-      <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
+        <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
       <% end %>
+
 
       <%= link_to preview_scanned_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
       <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
       <% end %>
 
-    <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
-
-      </div>
-
+      <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main_button"%>
+    </div>
   </div>
-
-  <% @dishes.each do |dish| %>
-      <div class="cards-dishes d-flex">
-        <div class="card-picture">
+  <div class="dish-cards mt-4">
+    <% @dishes.each do |dish| %>
+      <div class="d-flex bg-white h-100 p-3 dish-card position-relative">
+        <div class="me-3">
           <% if dish.photos.attached? %>
+
             <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
             <%# data-bs-ride to data-ride and added data-interval = "false" %>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400, crop: :fill %>
+                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400 %>
                 </div>
                 <% dish.photos.drop(1).each do |photo| %>
                   <div class="carousel-item">
-                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400 %>
                   </div>
                 <% end %>
               </div>
@@ -46,28 +46,36 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
+
+            <%#= cl_image_tag dish.photos.first.key, height: 300, width: 400, crop: :fill %>
+
           <% else %>
-            <%= image_tag "logo.jpeg", class: "card-picture-borders picture-dish-card card-picture" %>
+            <%= image_tag "logo.jpeg", height: 150, width: 150, crop: :fill %>
             <%# the image tag makes the path for you %>
           <% end %>
         </div>
 
-        <div class="col">
-          <div class="card-block px-2 text-card-dishes">
-            <h3><%=dish.name%></h3>
-            <p class="dish-category"><%=@menu.category%></p>
-            <p ><%=dish.description%></p>
-            <p>Price: <%=dish.price%></p>
-            <div class = "buttons_in_card">
-              <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary_button" %>
-            </div>
-            <div class = "trashcan-div">
-              <%=link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
-                <i class="fa-solid fa-trash trashcan"></i>
-              <% end %>
-            </div>
+        <div class="d-relative flex-grow-1">
+          <h3><%=dish.name%></h3>
+          <span class="badge rounded-pill fs-6 dish-category mb-2">
+            <%= @menu.category.capitalize %>
+          </span>
+          <p class="mb-1"><%= dish.description %></p>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary_button" %>
+            <span class="fw-bold fs-5 me-1"><%= dish.price %> €</span>
           </div>
-         </div>
+          <div class="trashcan position-absolute fs-5 top-0 end-0 mt-2 me-3 badge rounded-4 text-bg-light">
+            <%= link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+
+
+        </div>
       </div>
+
   <% end%>
+  
   </div>
+</div>

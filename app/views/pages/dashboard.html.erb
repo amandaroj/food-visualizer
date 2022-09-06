@@ -59,7 +59,7 @@
         <h2>Reviews</h2>
         <% @reviews.each do |review| %>
         <h5>><%=review.dish.name%> (<%=review.rating%> stars) </h5>
-        <p><%=review.content%></p>
+        <p><%=review.content%> (created at <%=review.created_at.strftime('%F')%>)</p>
         <% end %>
         <%=link_to "All reviews", reviews_path, class: "main_button"%>
       <%end%>
@@ -72,7 +72,7 @@
       <%else %>
         <% @reviews.each do |review| %>
           <%if review.rating <= 2%>
-            <h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at%>!</h5>
+            <h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at.strftime('%F')%>!</h5>
             <p> review: <%=review.content%></p>
           <%end%>
         <%end%>

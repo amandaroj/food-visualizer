@@ -79,4 +79,5 @@ group :test do
 end
 
 gem 'rqrcode'
-
+gem "chartkick"
+gem 'prawn'
