@@ -81,3 +81,5 @@ end
 gem 'rqrcode'
 gem "chartkick"
 gem 'prawn'
+
+gem "matrix", "~> 0.4.2"
