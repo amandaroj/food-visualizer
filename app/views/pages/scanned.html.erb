@@ -1,10 +1,10 @@
 <%# restaurant's show page %>
 <div class = "main_container">
   <h1>The menus of <%=@restaurant.name%></h1>
-  <div class="cards-grid-index cards-12-col">
+  <div class="menu-cards cards-12-col">
     <% @menus.each do |menu|%>
-      <div class = "card cards-menus-guest">
-        <div class = "card-body cards-menus-guest-text">
+      <div class = "card menu-card-guest">
+        <div class = "card-body menu-card-guest-text">
           <h3><%=menu.category%> menu</h3>
           <div class = "buttons-cards-placing-guest">
             <div class = "trashcan-div-menus">

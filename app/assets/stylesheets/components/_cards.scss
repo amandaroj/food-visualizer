@@ -80,16 +80,14 @@
 }
 
 
-.cards-menus {
+.menu-card {
   margin-top: 20px;
   background: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 350px;
-  height: 250px;
 }
 
-.cards-menus-guest {
+.menu-card-guest {
   justify-content: center;
   text-align: center;
   width: 220px;
@@ -101,7 +99,7 @@
   padding: 40px;
 }
 
-.cards-menus-guest-text{
+.menu-card-guest-text{
   margin-top: 30px;
 }
 
