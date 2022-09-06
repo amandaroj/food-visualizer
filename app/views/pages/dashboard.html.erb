@@ -57,7 +57,6 @@
         <p>No reviews yet.</p>
       <%else %>
         <h2>Reviews</h2>
-<<<<<<< HEAD
         <div data-controller="reviews-subscription"
         <%# # connect to the controller %>
         data-reviews-subscription-user-id-value="<%= current_user.id %>">
@@ -71,18 +70,10 @@
           <% end %>
         </div>
         <%=link_to "All reviews", reviews_path, class: "main_button"%>
-=======
-        <% @reviews.each do |review| %>
-        <h5>><%=review.dish.name%> (<%=review.rating%> stars) </h5>
-        <p><%=review.content%> (created at <%=review.created_at.strftime('%F')%>)</p>
-        <% end %>
-        <%=link_to "All reviews", reviews_path, class: "main-button"%>
->>>>>>> 82f4a4856da9d570985fb4ef7f7159fb375f8b47
       <%end%>
     </div>
 
     <div class="board-alerts ms-3">
-<<<<<<< HEAD
       <div>
         <div>
           <h2>Alerts</h2>
@@ -98,19 +89,6 @@
           </div>
         </div>
       </div>
-=======
-      <h2>Alerts</h2>
-      <%if @reviews.empty?%>
-        <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
-      <%else %>
-        <% @reviews.each do |review| %>
-          <%if review.rating <= 2%>
-            <h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at.strftime('%F')%>!</h5>
-            <p> review: <%=review.content%></p>
-          <%end%>
-        <%end%>
-      <%end%>
->>>>>>> 82f4a4856da9d570985fb4ef7f7159fb375f8b47
     </div>
   </div>
 </div>
