@@ -21,6 +21,26 @@ file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462448/F
 burrito.photos.attach(io: file, filename: "burrito.jpg", content_type: "image/jpg")
 burrito.save
 
+quesadilla = Dish.new(name: "Quesadilla", menu_id: m.id, description: "Tortilla filled with cheese", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662474975/FoodVisualizer/quesadilla_zvq6hw.jpg")
+quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "image/jpg")
+quesadilla.save
+
+tacos = Dish.new(name: "Tacos", menu_id: m.id, description: "Corn-based tortilla", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/FoodVisualizer/tacos_m7dzgc.jpg")
+tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
+tacos.save
+
+jarritos = Dish.new(name: "Jarritos", menu_id: m.id, description: "Mexican Soda", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
+jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
+jarritos.save
+
+churros = Dish.new(name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475217/FoodVisualizer/churros_lkpkor.jpg")
+churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
+churros.save
+
 pizza = Dish.new(name: "Pizza", menu_id: m.id, description: "Pizza with tomato sauce and other stuff", price: 9)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462452/FoodVisualizer/mozzarella-pizza_xspplw.jpg")
 pizza.photos.attach(io: file, filename: "mozzarellapizza.jpg", content_type: "image/jpg")
@@ -47,6 +67,11 @@ file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462449/F
 cheesecake.photos.attach(io: file, filename: "cheesecake.jpg", content_type: "image/jpg")
 cheesecake.save
 
+churros = Dish.new(name: "Churros", menu_id: dm.id, description: "Delicious vegan homemade churros", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475217/FoodVisualizer/churros_lkpkor.jpg")
+churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
+churros.save
+
 sm = Menu.create!(name: "Summer menu", category: "lunch", restaurant_id: r.id)
 
 cesarsalad = Dish.new(name: "Cesar Salad", menu_id: sm.id, description: "Chopped romaine lettuce with garlicky croutons and a creamy sauce", price: 9)
@@ -68,6 +93,27 @@ icecream = Dish.new(name: "Pssion Fruit Ice Cream", menu_id: sm.id, description:
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462455/FoodVisualizer/passion-fruit-ice-cream_gmwn3y.jpg")
 icecream.photos.attach(io: file, filename: "icecream.jpg", content_type: "image/jpg")
 icecream.save
+
+quesadilla = Dish.new(name: "Quesadilla", menu_id: sm.id, description: "Tortilla filled with cheese", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662474975/FoodVisualizer/quesadilla_zvq6hw.jpg")
+quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "image/jpg")
+quesadilla.save
+
+tacos = Dish.new(name: "Tacos", menu_id: sm.id, description: "Corn-based tortilla", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/FoodVisualizer/tacos_m7dzgc.jpg")
+tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
+tacos.save
+
+jarritos = Dish.new(name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
+jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
+jarritos.save
+
+churros = Dish.new(name: "Churros", menu_id: sm.id, description: "Delicious vegan homemade churros", price: 11)
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475217/FoodVisualizer/churros_lkpkor.jpg")
+churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
+churros.save
+
 
 a = Restaurant.create!(name: "Local Kitchen", owner: "Jesus", location: "Baixa Chiado")
 b = User.create!(email: "localkitchen@gmail.com", password: "6897456891")
