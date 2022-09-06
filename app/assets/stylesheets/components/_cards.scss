@@ -1,15 +1,24 @@
-.cards-dishes {
-  margin-top: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 70%px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dish-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 }
 
-.cards-dashboard{
+.trashcan {
+  a {
+    color: #909090;
+  }
+
+  a:hover {
+    color: red;
+  }
+}
+
+.trashcan:hover {
+  background-color: blue !important;
+}
+
+.cards-dashboard {
   margin-top: 20px;
   background: white;
   border-radius: 15px;
@@ -30,6 +39,11 @@
 
 #cards-reviews-search{
   width: 80%;
+}
+
+.dish-card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 15px;
 }
 
 .icon-reviews {
@@ -59,10 +73,6 @@
   padding-top: 40px;
 }
 
-.card-picture {
-  width: 320px;
-}
-
 .card-picture-borders {
   border-radius: 15px 0px 0px 15px ;
 }
@@ -73,12 +83,6 @@
   margin-right: 20px;
   position: relative;
 }
-
-
-.buttons_in_card {
-  margin-top: 80px;
-}
-
 
 .cards-menus {
   margin-top: 20px;
@@ -149,4 +153,8 @@
   align-items: center;
   display: flex;
   text-align: center;
+}
+
+.single-dish-card {
+  height: 100px;
 }
