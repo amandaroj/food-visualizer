@@ -5,7 +5,7 @@
       <%= form_with url: "", method: :get do %>
       <div class = "d-flex">
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
-        <%= submit_tag "Search", class: "main_button" %>
+        <%= submit_tag "Search", class: "main-button" %>
     </div>
       <% if @dish != nil %>
         <p><strong>The average rating of this dish is: <%=@average_rating_one_dish%> stars<strong></p>
