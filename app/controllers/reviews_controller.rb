@@ -18,7 +18,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.dish_id = @dish.id
     if @review.save
-      Dish.update(@dish.id, :average_rating => ((@dish.average_rating + @review.rating)/Review.where(dish: @dish).size))
+      Dish.update(@dish.id, average_rating: ((@dish.average_rating + @review.rating) / Review.where(dish: @dish).size))
+      reviews = Review.where(dish: @dish)
+      Dish.update(@dish.id, average_rating: reviews.sum(:rating) / reviews.count.to_f)
       redirect_to dishes_path(@menu.id)
     else
       render :new, state: :unprocessable_entities
