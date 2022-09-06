@@ -77,12 +77,13 @@
       <div>
         <div>
           <h2>Alerts</h2>
-          <div data-controller="reviews-subscription" data-reviews-subscription-user-id-value="<%= current_user.id %>">
+          <div data-controller="alerts-subscription"
+          data-alerts-subscription-user-id-value="<%= current_user.id %>">
             <%if @reviews.empty?%>
               <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
             <%else %>
               <% @reviews.poor.each do |review| %>
-                  <%= render "reviews/bad_review", review: review%>
+                <%= render "reviews/bad_review", review: review%>
               <%end%>
             <%end%>
           </div>

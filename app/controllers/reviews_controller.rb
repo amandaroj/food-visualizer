@@ -22,22 +22,24 @@ class ReviewsController < ApplicationController
         Dish.update(@dish.id, :average_rating => ((@dish.average_rating + @review.rating)/Review.where(dish: @dish).size))
 
         @review.concerned_users.each do |user|
-          if @review.rating > 2
+          # if @review.rating > 3
             ReviewChannel.broadcast_to(
               user,
               render_to_string(partial: "review", locals: {review: @review}) # this review is the one that is just saved
             )
-          else
-            ReviewChannel.broadcast_to(
-              user,
-              render_to_string(partial: "review", locals: {review: @review}) # this review is the one that is just saved
-            )
-            ReviewChannel.broadcast_to(
-              user,
-              render_to_string(partial: "bad_review", locals: {review: @review}) # this review is the one that is just saved
-            )
+          # else
+          #   # ReviewChannel.broadcast_to(
+          #   #   user,
+          #   #   render_to_string(partial: "review", locals: {review: @review}) # this review is the one that is just saved
+          #   # )
+          if @review.rating < 3
+            AlertChannel.broadcast_to(
+                user,
+                render_to_string(partial: "bad_review", locals: {review: @review})
+              )
           end
-           # sends a status 200, everything is ok with the http request
+          #   # this one does not broadcast
+          # end
         end
         redirect_to dishes_path(@menu.id)
       else
