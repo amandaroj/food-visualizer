@@ -57,26 +57,37 @@
         <p>No reviews yet.</p>
       <%else %>
         <h2>Reviews</h2>
-        <% @reviews.each do |review| %>
-        <h5>><%=review.dish.name%> (<%=review.rating%> stars) </h5>
-        <p><%=review.content%></p>
-        <% end %>
+        <div data-controller="reviews-subscription"
+        <%# # connect to the controller %>
+        data-reviews-subscription-user-id-value="<%= current_user.id %>">
+        <%# stimulus convention: data-controllername-valuename-value, allows you to
+        identify which object you want to receive the subscription, in this case the user
+        cause we want to see the reviews for that user's dashboard, in a chatbox, you want to
+        see the messages in that chatbox, even though they are also a user. It could have been restaurant too
+        like if you use the reviews of one restaurant, you would identify the restaurant %>
+          <% @reviews.each do |review| %>
+            <%= render "reviews/review", review: review%>
+          <% end %>
+        </div>
         <%=link_to "All reviews", reviews_path, class: "main_button"%>
       <%end%>
     </div>
 
     <div class="board-alerts ms-3">
-      <h2>Alerts</h2>
-      <%if @reviews.empty?%>
-        <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
-      <%else %>
-        <% @reviews.each do |review| %>
-          <%if review.rating <= 2%>
-            <h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at%>!</h5>
-            <p> review: <%=review.content%></p>
-          <%end%>
-        <%end%>
-      <%end%>
+      <div>
+        <div>
+          <h2>Alerts</h2>
+          <div data-controller="reviews-subscription" data-reviews-subscription-user-id-value="<%= current_user.id %>">
+            <%if @reviews.empty?%>
+              <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
+            <%else %>
+              <% @reviews.poor.each do |review| %>
+                  <%= render "reviews/bad_review", review: review%>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
