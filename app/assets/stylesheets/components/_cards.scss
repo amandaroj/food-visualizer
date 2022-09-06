@@ -1,15 +1,24 @@
-.cards-dishes {
-  margin-top: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 70%px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dish-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 }
 
-.cards-dashboard{
+.trashcan {
+  a {
+    color: #FFFFFF;
+  }
+
+  a:hover {
+    color: #FFFFFF;
+  }
+}
+
+.trashcan:hover {
+  background-color: #b7b7b7 !important;
+}
+
+.cards-dashboard {
   margin-top: 20px;
   background: white;
   border-radius: 15px;
@@ -30,6 +39,11 @@
 
 #cards-reviews-search{
   width: 80%;
+}
+
+.dish-card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 15px;
 }
 
 .icon-reviews {
@@ -59,12 +73,8 @@
   padding-top: 40px;
 }
 
-.card-picture {
-  width: 320px;
-}
-
 .card-picture-borders {
-  border-radius: 15px 0px 0px 15px ;
+  border-radius: 15px;
 }
 
 .text-card-dishes {
@@ -74,22 +84,18 @@
   position: relative;
 }
 
-
 .buttons_in_card {
   margin-top: 80px;
 }
 
-
-.cards-menus {
+.menu-card {
   margin-top: 20px;
   background: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 350px;
-  height: 250px;
 }
 
-.cards-menus-guest {
+.menu-card-guest {
   justify-content: center;
   text-align: center;
   width: 220px;
@@ -101,7 +107,7 @@
   padding: 40px;
 }
 
-.cards-menus-guest-text{
+.menu-card-guest-text{
   margin-top: 30px;
 }
 
@@ -129,16 +135,6 @@
   padding: 0px 10px 10px;
 }
 
-.card-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  p {
-    margin: 0px;
-  }
-}
-
 .card-index-restaurants {
   min-width: auto;
   border-radius: 15px;
@@ -149,4 +145,21 @@
   align-items: center;
   display: flex;
   text-align: center;
+}
+
+
+.picture-dish-card {
+  object-fit: cover;
+}
+
+.single-dish-card {
+  height: 100px;
+}
+
+.graph {
+  width: 50%;
+}
+
+.all-reviews {
+  width: 50%;
 }

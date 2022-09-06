@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 <div class = "m-4">
+=======
+<div class = "m-4 pb-4">
+>>>>>>> 82f4a4856da9d570985fb4ef7f7159fb375f8b47
   <div class="d-flex justify-content-between">
     <div class="cards-reviews me-3" id="cards-reviews-search">
       <h2>All reviews per dish</h2>
       <%= form_with url: "", method: :get do %>
       <div class = "d-flex">
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
-        <%= submit_tag "Search", class: "main_button" %>
+        <%= submit_tag "Search", class: "main-button" %>
     </div>
       <% if @dish != nil %>
         <p><strong>The average rating of this dish is: <%=@average_rating_one_dish%> stars<strong></p>
@@ -47,14 +51,22 @@
 
   </div>
 
-    <div class="cards-reviews">
-      <h2>All reviews</h2>
-      <br>
-        <%# import all the reviews here and sort them by created at date %>
-        <% @all_reviews.each do |review| %>
-          <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
-          <p><%= review.content %></p>
-        <% end%>
+    <div class = "d-flex flex-row">
+      <div class="cards-reviews graph  me-3">
+      <h2>Average rating per dish</h2>
+      <%= bar_chart Dish.group(:name).sum(:average_rating), colors: ["#F58222"] %>
+      </div>
+
+      <div class="cards-reviews all-reviews ">
+        <h2>All reviews</h2>
+        <br>
+          <%# import all the reviews here and sort them by created at date %>
+          <% @all_reviews.each do |review| %>
+            <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
+            <p><%= review.content %></p>
+          <% end%>
+      </div>
     </div>
+
 
 </div>

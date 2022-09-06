@@ -8,11 +8,11 @@
 
   <%= form_with url: preview_dishes_path(@menu), method: :get, class: "d-flex" do %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
-    <%= submit_tag "Search", class: "main_button" %>
+    <%= submit_tag "Search", class: "main-button" %>
   <% end %>
 
   <% @dishes.each do |dish| %>
-      <div class="cards-dishes d-flex ">
+      <div class="dish-cards d-flex ">
         <div class=" card_picture">
           <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -41,9 +41,7 @@
             <h4><%=dish.name%></h4>
             <p><%=dish.description%></p>
             <p>Price: <%=dish.price%></p>
-            <div class = "buttons_in_card">
-              <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary_button" %>
-            </div>
+            <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary_button mt-4" %>
             <div class = "magglass-div">
               <%=link_to root_path do%>
                 <i class="fa-solid fa-magnifying-glass magglas"></i>

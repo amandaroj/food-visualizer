@@ -1,13 +1,13 @@
-.cards-dishes {
-  margin-top: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 70%px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .dish-cards {
+//   margin-top: 20px;
+//   background: white;
+//   border-radius: 15px;
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+//   width: 70%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .center {
   margin: auto;
@@ -21,7 +21,7 @@
 }
 
 .card-picture_borders {
-  border-radius: 15px 0px 0px 15px ;
+  border-radius: 15px;
 }
 
 .text-card-dishes {
@@ -29,8 +29,4 @@
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
-}
-
-.buttons_in_card {
-  margin-top: 80px;
 }
