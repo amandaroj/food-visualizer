@@ -24,7 +24,31 @@
       <div class="d-flex bg-white h-100 p-3 dish-card position-relative">
         <div class="me-3">
           <% if dish.photos.attached? %>
-            <%= cl_image_tag dish.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+            <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
+            <%# data-bs-ride to data-ride and added data-interval = "false" %>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%= cl_image_tag dish.photos.first.key, class: 'd-block w-100 card-picture-borders picture-dish-card', height: 300, width: 400 %>
+                </div>
+                <% dish.photos.drop(1).each do |photo| %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, class: 'd-block w-10 picture-dish-card', height: 300, width: 400 %>
+                  </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+            <%#= cl_image_tag dish.photos.first.key, height: 300, width: 400, crop: :fill %>
+
           <% else %>
             <%= image_tag "logo.jpeg", height: 150, width: 150, crop: :fill %>
             <%# the image tag makes the path for you %>
