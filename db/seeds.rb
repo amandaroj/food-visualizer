@@ -145,7 +145,7 @@ cesarsalad.photos.attach(io: file, filename: "cesarsalad.jpg", content_type: "im
 cesarsalad.save
 
 pepperonipizza = Dish.new(name: "Pepperoni Pizza", menu_id: lfm.id, description: "Mozzarela, tomato sauce and pepperoni", price: 12)
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462449/FoodVisualizer/pepperoni-pizza_zfcjqe.jpg")
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662476202/FoodVisualizer/pepperoni_xxelzh.jpg")
 pepperonipizza.photos.attach(io: file, filename: "pepperonipizza.jpg", content_type: "image/jpg")
 pepperonipizza.save
 
