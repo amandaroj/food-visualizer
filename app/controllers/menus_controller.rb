@@ -41,18 +41,7 @@ class MenusController < ApplicationController
 
   def qr
     @restaurant = Restaurant.find(params[:restaurant_id])
-    # @menu = Menu.find(params[:id]) if you need them you can add them in the ()
-    # @dishes = Dish.where(menu_id: @menu.id)
-    # now you take the restaurant id and show the page that belongs to that restaurant for a guest
-    @qrcode = RQRCode::QRCode.new("https://foodvisualiser.com/scanned/?restaurant_id=#{@restaurant.id}")
-    # needs to redirect to the page which shows the restaurants#show
-
-    # you click generate QR, you get the restaurant id and are redirected to qr
-
-    # when you scan the QR, the QR contains the restaurant_id, so the path that is chosen by following the qr needs to
-    # get the restauarant_id
-    # scanned should have the restaurant id
-
+      @qrcode = RQRCode::QRCode.new("https://foodvisualizer.com/scanned/?restaurant_id=#{@restaurant.id}")
     @svg = @qrcode.as_svg(
       offset: 0,
       color: '000',

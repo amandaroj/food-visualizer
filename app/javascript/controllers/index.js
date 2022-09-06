@@ -3,10 +3,15 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-// import { rating } from "./rating"
+
+import AlertsSubscriptionController from "./alerts_subscription_controller"
+application.register("alerts-subscription", AlertsSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ReviewsSubscriptionController from "./reviews_subscription_controller"
+application.register("reviews-subscription", ReviewsSubscriptionController)
 
 import ShowMenusOfRestaurantController from "./show_menus_of_restaurant_controller"
 application.register("show-menus-of-restaurant", ShowMenusOfRestaurantController)
