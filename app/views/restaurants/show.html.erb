@@ -2,7 +2,7 @@
   <h1 class="mb-4">The menus of <%= @restaurant.name %></h1>
 
   <div class="menu-cards mb-5">
-    <% @menus.each do |menu|%>
+    <% @menus.each do |menu| %>
       <div class="d-flex card p-3 rounded-4 shadow" style="flex-direction: row">
         <div class="flex-grow-1">
           <h3><%= menu.name.capitalize %></h3>
@@ -16,16 +16,21 @@
             <%= link_to "See menu", restaurant_menu_path(@restaurant.id, menu.id), class: "main-button mt-4 mb-2" %>
           </div>
         </div>
-        <div class="d-flex flex-column justify-content-between ms-3">
-          <%=link_to edit_restaurant_menu_path(@restaurant.id, menu.id), class: 'edit' do %>
-            <i class="fa-solid fa-pen-to-square fs-4"></i>
-          <%end%>
-          <%=link_to restaurant_menu_path(@restaurant.id, menu.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fs-4 edit" do%>
-            <i class="fa-solid fa-trash"></i>
-          <% end %>
-        </div>
+
+        <% if @current_user_is_owner %>
+          <div class="d-flex flex-column justify-content-between ms-3">
+            <%=link_to edit_restaurant_menu_path(@restaurant.id, menu.id), class: 'edit' do %>
+              <i class="fa-solid fa-pen-to-square fs-4"></i>
+            <%end%>
+            <%=link_to restaurant_menu_path(@restaurant.id, menu.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fs-4 edit" do%>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
+
       </div>
     <% end%>
   </div>
-  <%= link_to "Add menu", new_restaurant_menu_path(@restaurant.id), class: "main-button ms-2" %>
+
+  <%= link_to "Add menu", new_restaurant_menu_path(@restaurant.id), class: "main-button ms-2" if @current_user_is_owner %>
 </div>

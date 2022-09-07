@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :create]
+
   # def index
   #   @dish = Dish.find(params[:dish_id])
   #   @reviews = @dish.reviews
@@ -31,7 +33,7 @@ class ReviewsController < ApplicationController
           )
         end
       end
-      redirect_to dishes_path(@menu.id)
+      redirect_to restaurant_menu_path(@menu.restaurant, @menu.id)
     else
       render :new, state: :unprocessable_entities
     end
