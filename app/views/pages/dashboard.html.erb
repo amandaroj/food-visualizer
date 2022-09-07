@@ -5,23 +5,28 @@
     <div class="col-6">
     <div class = "restaurants-div">
       <div class="v-100 d-flex">
-        <h2>Your restaurants</h2>
+        <h2 class = "mb-3">Your restaurants</h2>
         <%= link_to restaurants_path do %>
           <i class="fa-solid fa-pen-to-square edit ms-3 fs-2"></i>
         <% end %>
       </div>
       <div class="d-flex justify-content-around">
         <% @restaurants.each do |restaurant|%>
-          <div class="cards-dashboard card">
+          <div class="cards-dashboard card parent-restaurant-card">
             <% if restaurant.photo.key %>
               <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "photos-cards-dashboard" %>
             <% else %>
               <%= image_tag "/assets/logo.jpeg", class: "photos-cards-dashboard" %>
             <% end %>
             <div class="card-body">
-              <h5><%= restaurant.name %></h5>
-              <p><%= restaurant.owner %></p>
-              <p>📍 <%= restaurant.location %></p>
+              <h5 class = "override-margin-bottom"><%= restaurant.name %></h5>
+              <p class = "override-margin-bottom"><%= restaurant.owner %></p>
+              <p class = "override-margin-bottom">📍 <%= restaurant.location %></p>
+            <div class="btns-menu-dishes mb-2 child-restaurant-card">
+              <%= link_to qr_path(restaurant_id: restaurant.id), class: "button-47" do %>
+                <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
+              <% end %>
+            </div>
               <%menus = Menu.where(restaurant_id: restaurant.id)%>
               <div class="accordion" id="accordion-<%= restaurant.id %>">
                 <div class="accordion-item">

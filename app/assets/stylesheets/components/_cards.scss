@@ -19,11 +19,9 @@
 }
 
 .cards-dashboard {
-  margin-top: 20px;
   background: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  max-height: 430px;
 }
 
 .cards-reviews{
@@ -39,6 +37,7 @@
 
 #cards-reviews-search{
   width: 80%;
+  height: 560px;
 }
 
 .dish-card {
@@ -64,7 +63,9 @@
 .photos-cards-dashboard {
   border-radius: 15px 15px 0px 0px;
   height: 230px;
-  padding: 20px;
+  // padding-top: 12px;
+  // padding-left: 12px;
+  // padding-right: 12px;
 }
 
 .center {
