@@ -17,7 +17,9 @@ class PagesController < ApplicationController
       @menus = Menu.where(restaurant_id: restaurant.id)
     end
     @reviews = Review.all
-  end
+    @reviews = @reviews.poor
+    @reviews = @reviews.sort_by(&:created_at).reverse!
+   end
 
   def scanned
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -56,7 +58,7 @@ class PagesController < ApplicationController
   def reviews_owner
     # ALL REVIEWS
     @all_reviews = Review.all
-
+    @all_reviews = @all_reviews.sort_by(&:created_at).reverse!
     # AVERAGE RATING ALL DISHES
     total = 0
     @all_reviews.size
