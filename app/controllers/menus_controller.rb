@@ -1,7 +1,12 @@
 class MenusController < ApplicationController
+  before_action :authenticate_user!, except: :show
+
   def show
     @menu = Menu.find(params[:id])
     @dishes = Dish.where(menu_id: @menu.id)
+
+    @current_user_is_owner = @menu.restaurant.users.include?(current_user)
+    @preview_mode = (params[:preview] == "true")
   end
 
   def new
