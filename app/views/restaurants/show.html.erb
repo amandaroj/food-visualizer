@@ -10,12 +10,15 @@
             <%= menu.category.capitalize %>
           </span>
           <div>
+            <p class= "mt-4 mr-5 mb-0"><%= menu.description %></p>
+          </div>
+          <div>
             <%= link_to "See menu", restaurant_menu_path(@restaurant.id, menu.id), class: "main-button mt-4 mb-2" %>
           </div>
         </div>
 
         <% if @current_user_is_owner %>
-          <div class="d-flex flex-column justify-content-around ms-3">
+          <div class="d-flex flex-column justify-content-between ms-3">
             <%=link_to edit_restaurant_menu_path(@restaurant.id, menu.id), class: 'edit' do %>
               <i class="fa-solid fa-pen-to-square fs-4"></i>
             <%end%>
