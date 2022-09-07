@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="header-text">
-    <br>
-    <h1>New dish</h1>
-  </div>
+  <h1 class="text-center mt-4"> New Dish</h1>
 
-  <div class="form-text">
+  <div class="mx-auto" style="width: 500px;">
     <%= simple_form_for [@restaurant, @menu, @dish] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit "Create dish", class: "btn btn-secondary" %>
+      <%= f.input :name, input_html: { class: "form-radius" }  %>
+      <%= f.input :description, input_html: { class: "form-radius" }  %>
+      <%= f.input :price, input_html: { class: "form-radius" }  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, input_html: { class: "form-radius" }  %>
+
+      <div class="mt-5 text-center">
+      <%= f.submit "Create dish", class: "main-button" %>
+      </div>
     <% end %>
   </div>
 </div>
