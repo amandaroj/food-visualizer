@@ -25,8 +25,7 @@
       <div class="d-flex bg-white h-100 p-3 dish-card position-relative">
         <div class="me-3">
           <% if dish.photos.attached? %>
-
-            <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide" data-ride="carousel" data-interval = "false">
+            <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide width-carousel" data-ride="carousel" data-interval = "false">
             <%# data-bs-ride to data-ride and added data-interval = "false" %>
               <div class="carousel-inner">
                 <div class="carousel-item active">

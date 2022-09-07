@@ -1,14 +1,15 @@
 <div class="dashboard-container">
-  <%# <h1>Dashboard</h1> %>
-  <div class="v-100 d-flex">
-    <h2>Your restaurants</h2>
-    <%= link_to restaurants_path do %>
-      <i class="fa-solid fa-pen-to-square edit ms-3 fs-2"></i>
-    <% end %>
-  </div>
+  <h1>Dashboard</h1>
 
   <div class="d-flex justify-content-between">
     <div class="col-6">
+    <div class = "restaurants-div">
+      <div class="v-100 d-flex">
+        <h2>Your restaurants</h2>
+        <%= link_to restaurants_path do %>
+          <i class="fa-solid fa-pen-to-square edit ms-3 fs-2"></i>
+        <% end %>
+      </div>
       <div class="d-flex justify-content-around">
         <% @restaurants.each do |restaurant|%>
           <div class="cards-dashboard card">
@@ -45,21 +46,28 @@
         <% end %>
       </div>
     </div>
+    </div>
 
 <%# PAGE HITS %>
     <div class="col-6">
-      <div class='scans-div'>
-        <h2>Scans</h2>
-        <div class="d-flex justify-content-around">
-          <%@restaurants.each do |restaurant| %>
-            <div class="board-visits">
-              <h2>QRs scanned</h2>
-              <h5><%=restaurant.name%>: <%=restaurant.scans_count%></h5>
-              <i class="fa-solid fa-mobile-screen-button phone"></i>
+    <div class="board-alerts">
+        <div>
+          <div>
+            <h2>Alerts</h2>
+            <div data-controller="alerts-subscription"
+            data-alerts-subscription-user-id-value="<%= current_user.id %>">
+              <%if @reviews[0..4].empty?%>
+                <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
+              <%else %>
+                <% @reviews.each do |review| %>
+                  <%= render "reviews/bad_review", review: review%>
+                <%end%>
+              <%end%>
             </div>
-          <%end%>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -83,27 +91,22 @@
               <%= render "reviews/review", review: review%>
             <% end %>
           </div>
-          <%=link_to "All reviews", reviews_path, class: "main_button"%>
+          <%=link_to "All reviews", reviews_path, class: "main-button"%>
         <% end %>
       </div>
     </div>
 
     <div class="col-6">
-      <div class="board-alerts">
-        <div>
-          <div>
-            <h2>Alerts</h2>
-            <div data-controller="alerts-subscription"
-            data-alerts-subscription-user-id-value="<%= current_user.id %>">
-              <%if @reviews[0..4].empty?%>
-                <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
-              <%else %>
-                <% @reviews.each do |review| %>
-                  <%= render "reviews/bad_review", review: review%>
-                <%end%>
-              <%end%>
+    <div class='scans-div'>
+        <h2>Scans</h2>
+        <div class="d-flex justify-content-around">
+          <%@restaurants.each do |restaurant| %>
+            <div class="board-visits">
+              <h2>QRs scanned</h2>
+              <h5><%=restaurant.name%>: <%=restaurant.scans_count%></h5>
+              <i class="fa-solid fa-mobile-screen-button phone"></i>
             </div>
-          </div>
+          <%end%>
         </div>
       </div>
     </div>
