@@ -66,7 +66,8 @@
   <div class="d-flex justify-content-between">
     <div class="col-6">
       <div class="board-reviews">
-        <h2>Reviews</h2>
+        <h2 class = "mb-0">Reviews</h2>
+        <p>Most recent reviews</p>
         <%if @reviews.empty?%>
           <p>No reviews yet.</p>
         <%else %>
@@ -78,7 +79,7 @@
           cause we want to see the reviews for that user's dashboard, in a chatbox, you want to
           see the messages in that chatbox, even though they are also a user. It could have been restaurant too
           like if you use the reviews of one restaurant, you would identify the restaurant %>
-            <% @reviews.each do |review| %>
+            <% @reviews[0..4].each do |review| %>
               <%= render "reviews/review", review: review%>
             <% end %>
           </div>
@@ -94,10 +95,10 @@
             <h2>Alerts</h2>
             <div data-controller="alerts-subscription"
             data-alerts-subscription-user-id-value="<%= current_user.id %>">
-              <%if @reviews.empty?%>
+              <%if @reviews[0..4].empty?%>
                 <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
               <%else %>
-                <% @reviews.poor.each do |review| %>
+                <% @reviews.each do |review| %>
                   <%= render "reviews/bad_review", review: review%>
                 <%end%>
               <%end%>
