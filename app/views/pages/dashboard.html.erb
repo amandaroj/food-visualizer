@@ -1,6 +1,5 @@
 <div class="dashboard-container">
   <%# <h1>Dashboard</h1> %>
-
   <div class="v-100 d-flex">
     <h2>Your restaurants</h2>
     <%= link_to restaurants_path do %>
@@ -9,83 +8,100 @@
   </div>
 
   <div class="d-flex justify-content-between">
-    <div class="board-restaurants d-flex mb-3">
-      <% @restaurants.each do |restaurant|%>
-        <div class="cards-dashboard card me-4" style="width: 300px">
-          <%= cl_image_tag("pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
-          <div class="card-body">
-            <h5><%= restaurant.name %></h5>
-            <p><%= restaurant.owner %></p>
-            <p>📍 <%= restaurant.location %></p>
-            <%menus = Menu.where(restaurant_id: restaurant.id)%>
-          </div>
-<%# Accordion %>
-          <div class="accordion" id="accordion-<%= restaurant.id %>">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="restaurant-<%=restaurant.id%>">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%=restaurant.id%>" aria-expanded="true" aria-controls="collapse-<%=restaurant.id%>">
-                  See menus
-                </button>
-              </h2>
-              <% menus.each do |menu|%>
-                <div id="collapse-<%=restaurant.id %>" class="accordion-collapse collapse in" aria-labelledby="heading-<%=restaurant.id%>" data-bs-parent="#accordion-<%=restaurant.id%>">
-                  <div class="accordion-body">
-                  <%=link_to "#{menu.name}", restaurant_menu_path(menu.restaurant, menu)%>
-                  </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-around">
+        <% @restaurants.each do |restaurant|%>
+          <div class="cards-dashboard card">
+            <% if restaurant.photo.key %>
+              <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "photos-cards-dashboard" %>
+            <% else %>
+              <%= image_tag "/assets/logo.jpeg", class: "photos-cards-dashboard" %>
+            <% end %>
+            <div class="card-body">
+              <h5><%= restaurant.name %></h5>
+              <p><%= restaurant.owner %></p>
+              <p>📍 <%= restaurant.location %></p>
+              <%menus = Menu.where(restaurant_id: restaurant.id)%>
+              <div class="accordion" id="accordion-<%= restaurant.id %>">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="restaurant-<%=restaurant.id%>">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%=restaurant.id%>" aria-expanded="true" aria-controls="collapse-<%=restaurant.id%>">
+                      See menus
+                    </button>
+                  </h2>
+                  <% menus.each do |menu|%>
+                    <div id="collapse-<%=restaurant.id %>" class="accordion-collapse collapse in" aria-labelledby="heading-<%=restaurant.id%>" data-bs-parent="#accordion-<%=restaurant.id%>">
+                      <div class="accordion-body">
+                        <%=link_to "#{menu.name}", restaurant_menu_path(menu.restaurant, menu), class: "no-text-decoration" %>
+                      </div>
+                    </div>
+                  <% end %>
                 </div>
-              <%end%>
+              </div>
             </div>
+            <%# Accordion %>
+            <%# end accordion %>
           </div>
-<%# end accordion %>
-        </div>
-      <%end%>
+        <% end %>
+      </div>
     </div>
 
 <%# PAGE HITS %>
-      <%@restaurants.each do |restaurant| %>
-        <div class="board-visits">
-          <h2>QRs scanned</h2>
-          <h5><%=restaurant.name%>: <%=restaurant.scans_count%></h5>
-          <i class="fa-solid fa-mobile-screen-button phone"></i>
+    <div class="col-6">
+      <div class='scans-div'>
+        <h2>Scans</h2>
+        <div class="d-flex justify-content-around">
+          <%@restaurants.each do |restaurant| %>
+            <div class="board-visits">
+              <h2>QRs scanned</h2>
+              <h5><%=restaurant.name%>: <%=restaurant.scans_count%></h5>
+              <i class="fa-solid fa-mobile-screen-button phone"></i>
+            </div>
+          <%end%>
         </div>
-      <%end%>
+      </div>
+    </div>
   </div>
 
   <div class="d-flex justify-content-between">
-    <div class="board-reviews me-3">
-      <%if @reviews.empty?%>
-        <p>No reviews yet.</p>
-      <%else %>
+    <div class="col-6">
+      <div class="board-reviews">
         <h2>Reviews</h2>
-        <div data-controller="reviews-subscription"
-        <%# # connect to the controller %>
-        data-reviews-subscription-user-id-value="<%= current_user.id %>">
-        <%# stimulus convention: data-controllername-valuename-value, allows you to
-        identify which object you want to receive the subscription, in this case the user
-        cause we want to see the reviews for that user's dashboard, in a chatbox, you want to
-        see the messages in that chatbox, even though they are also a user. It could have been restaurant too
-        like if you use the reviews of one restaurant, you would identify the restaurant %>
-          <% @reviews.each do |review| %>
-            <%= render "reviews/review", review: review%>
-          <% end %>
-        </div>
-        <%=link_to "All reviews", reviews_path, class: "main_button"%>
-      <%end%>
+        <%if @reviews.empty?%>
+          <p>No reviews yet.</p>
+        <%else %>
+          <div data-controller="reviews-subscription"
+          <%# # connect to the controller %>
+          data-reviews-subscription-user-id-value="<%= current_user.id %>">
+          <%# stimulus convention: data-controllername-valuename-value, allows you to
+          identify which object you want to receive the subscription, in this case the user
+          cause we want to see the reviews for that user's dashboard, in a chatbox, you want to
+          see the messages in that chatbox, even though they are also a user. It could have been restaurant too
+          like if you use the reviews of one restaurant, you would identify the restaurant %>
+            <% @reviews.each do |review| %>
+              <%= render "reviews/review", review: review%>
+            <% end %>
+          </div>
+          <%=link_to "All reviews", reviews_path, class: "main_button"%>
+        <% end %>
+      </div>
     </div>
 
-    <div class="board-alerts ms-3">
-      <div>
+    <div class="col-6">
+      <div class="board-alerts">
         <div>
-          <h2>Alerts</h2>
-          <div data-controller="alerts-subscription"
-          data-alerts-subscription-user-id-value="<%= current_user.id %>">
-            <%if @reviews.empty?%>
-              <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
-            <%else %>
-              <% @reviews.poor.each do |review| %>
-                <%= render "reviews/bad_review", review: review%>
+          <div>
+            <h2>Alerts</h2>
+            <div data-controller="alerts-subscription"
+            data-alerts-subscription-user-id-value="<%= current_user.id %>">
+              <%if @reviews.empty?%>
+                <p>Alert will appear when there are reviews with 1 or 2 stars.</p>
+              <%else %>
+                <% @reviews.poor.each do |review| %>
+                  <%= render "reviews/bad_review", review: review%>
+                <%end%>
               <%end%>
-            <%end%>
+            </div>
           </div>
         </div>
       </div>
