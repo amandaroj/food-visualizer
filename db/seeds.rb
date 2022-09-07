@@ -37,11 +37,15 @@ burrito.photos.attach(io: file, filename: "burrito.jpg", content_type: "image/jp
 burrito.save
 puts "Created #{burrito.name}!"
 
+Review.create!(content: "Best burrito in town", rating: 5, dish_id: burrito.id)
+Review.create!(content: "Very good, but a little dry", rating: 4, dish_id: burrito.id)
+
 quesadilla = Dish.new(name: "Quesadilla", menu_id: m.id, description: "Tortilla filled with cheese", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662474975/FoodVisualizer/quesadilla_zvq6hw.jpg")
 quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "image/jpg")
 quesadilla.save
 puts "Created #{quesadilla.name}!"
+Review.create!(content: "Very good", rating: 4, dish_id: quesadilla.id)
 
 tacos = Dish.new(name: "Tacos", menu_id: m.id, description: "Corn-based tortilla", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/FoodVisualizer/tacos_m7dzgc.jpg")
@@ -49,29 +53,41 @@ tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
 tacos.save
 puts "Created #{tacos.name}!"
 
+Review.create!(content: "Taste like feet", rating: 0, dish_id: tacos.id)
+Review.create!(content: "The tortilla was not corn-based like they said", rating: 2, dish_id: tacos.id)
+
+
 jarritos = Dish.new(name: "Jarritos", menu_id: m.id, description: "Mexican Soda", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
 jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
 jarritos.save
 puts "Created #{jarritos.name}!"
+Review.create!(content: "The BEST soda!", rating: 5, dish_id: jarritos.id)
+
 
 churros = Dish.new(name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475217/FoodVisualizer/churros_lkpkor.jpg")
 churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
 churros.save
 puts "Created #{churros.name}!"
+Review.create!(content: "Perfect churros!", rating: 5, dish_id: churros.id)
+Review.create!(content: "Loved it!", rating: 5, dish_id: churros.id)
 
 pizza = Dish.new(name: "Pizza", menu_id: m.id, description: "Pizza with tomato sauce and other stuff", price: 9)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462452/FoodVisualizer/mozzarella-pizza_xspplw.jpg")
 pizza.photos.attach(io: file, filename: "mozzarellapizza.jpg", content_type: "image/jpg")
 pizza.save
 puts "Created #{pizza.name}!"
+Review.create!(content: "The tomato sauce tastes like ketchup", rating: 2, dish_id: pizza.id)
+
 
 brownie = Dish.new(name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662390720/FoodVisualizer/803vmgu9vpdffydzdffe6amj8cxj.jpg")
 brownie.photos.attach(io: file, filename: "brownie.jpg", content_type: "image/jpg")
 brownie.save
 puts "Created #{brownie.name}!"
+Review.create!(content: "Perfect! Better than my husband's", rating: 5, dish_id: churros.id)
+
 
 dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id)
 onionsoup = Dish.new(name: "Onion Soup", menu_id: dm.id, description: "Soup with onions and butter", price: 13)
@@ -179,9 +195,9 @@ hazelnutbrownie.photos.attach(io: file, filename: "hazelnutbrownie.jpg", content
 hazelnutbrownie.save
 puts "Created #{hazelnutbrownie.name}!"
 
-z = Restaurant.new(name: "Bon Ton", owner: "Felicite", location: "Lisbon")
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662549160/FoodVisualizer/bonton_d9mpea.jpg")
-z.photo.attach(io: file, filename: "bonton.jpg", content_type: "image/jpg")
+z = Restaurant.new(name: "Faustino", owner: "Felicite", location: "Lisbon")
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662556434/FoodVisualizer/Logotipo_para_Restaurante_e_Pizzaria_Simples_kokzwy.png")
+z.photo.attach(io: file, filename: "bonton.png", content_type: "image/png")
 z.save
 puts "Created #{z.name}!"
 
@@ -195,24 +211,31 @@ file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462449/F
 cesarsalad.photos.attach(io: file, filename: "cesarsalad.jpg", content_type: "image/jpg")
 cesarsalad.save
 puts "Created #{cesarsalad.name}!"
+Review.create!(content: "Good for a salad!", rating: 4, dish_id: cesarsalad.id)
+
 
 pepperonipizza = Dish.new(name: "Pepperoni Pizza", menu_id: lfm.id, description: "Mozzarela, tomato sauce and pepperoni", price: 12)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662476202/FoodVisualizer/pepperoni_xxelzh.jpg")
 pepperonipizza.photos.attach(io: file, filename: "pepperonipizza.jpg", content_type: "image/jpg")
 pepperonipizza.save
 puts "Created #{pepperonipizza.name}!"
+Review.create!(content: "Perfect! Best tomato sauce ever.", rating: 5, dish_id: pepperonipizza.id)
+
 
 mozzarellapizza = Dish.new(name: "Mozzarella Pizza", menu_id: lfm.id, description: "Mozzarela, basil and tomato sauce", price: 10)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462452/FoodVisualizer/mozzarella-pizza_xspplw.jpg")
 mozzarellapizza.photos.attach(io: file, filename: "mozzarellapizza.jpg", content_type: "image/jpg")
 mozzarellapizza.save
 puts "Created #{mozzarellapizza.name}!"
+Review.create!(content: "Love it", rating: 5, dish_id: mozzarellapizza.id)
 
-aperol = Dish.new(name: "Aperol Spritz", menu_id: lfm.id, description: "Prosecco Cocktail with orange slice", price: 13)
+
+aperol = Dish.new(name: "Aperol Spritz", menu_id: lfm.id, description: "Prosecco Cocktail with orange slice", price: 23)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462448/FoodVisualizer/aperol_gkmtma.jpg")
 aperol.photos.attach(io: file, filename: "aperol.jpg", content_type: "image/jpg")
 aperol.save
 puts "Created #{aperol.name}!"
+Review.create!(content: "Good (not great) and very expensive", rating: 2, dish_id: aperol.id)
 
 vn = Restaurant.create!(name: "Vietnamese Cuisine", owner: "Kate", location: "Santo Antonio")
 puts "Created #{vn.name}!"
