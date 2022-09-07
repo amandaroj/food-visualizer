@@ -324,3 +324,21 @@
 .menus-btn:hover {
   color: rgb(67, 66, 66);
 }
+
+.accordion-button {
+  // color: gray !important;
+  background-color: gainsboro !important;
+  // box-shadow: 0px 0px 14px -7px #f09819 !important;
+  // background-image: linear-gradient(45deg, #FF552D 0%, #F1961A  51%, #FF512F  100%) !important;
+  color: black !important;
+  // border-radius: 10px !important;
+}
+
+.accordion-button::after {
+  color: gray !important;
+  background-image:none !important;
+}
+
+.accordion-body {
+  background-color: white !important;
+}
