@@ -41,7 +41,7 @@
             <h4><%=dish.name%></h4>
             <p><%=dish.description%></p>
             <p>Price: <%=dish.price%></p>
-            <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary_button mt-4" %>
+            <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary-button mt-4" %>
             <div class = "magglass-div">
               <%=link_to root_path do%>
                 <i class="fa-solid fa-magnifying-glass magglas"></i>

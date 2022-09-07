@@ -17,9 +17,13 @@ puts "--------------------"
 puts "\n"
 
 puts "Creating Restaurants..."
+puts "creating new restaurant"
 r = Restaurant.new(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
+puts "opening a file"
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662485755/FoodVisualizer/veganjunkies_fryafu.png")
+puts "attaching picture"
 r.photo.attach(io: file, filename: "veganjunkies.png", content_type: "image/png")
+puts "saving the picture"
 r.save
 puts "Created #{r.name}!"
 

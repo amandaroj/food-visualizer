@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_action :authenticate_user!, except: :show
+
   def show
     @menu = Menu.find(params[:id])
     @dishes = Dish.where(menu_id: @menu.id)
