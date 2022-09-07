@@ -1,4 +1,5 @@
 <div class = "m-4 pb-4">
+<h1 class="text-justify">Dashboard > Reviews </h1>
   <div class="d-flex justify-content-between">
     <div class="cards-reviews me-3" id="cards-reviews-search">
       <h2>All reviews per dish</h2>
@@ -32,13 +33,13 @@
         <div class = "cards-reviews me-3 align-text-reviews">
           <h2>Lowest average</h2>
           <i class="fa-solid fa-arrow-trend-down icon-reviews"></i>
-          <h4><%=@worst_dish.name%>: <%=@worst_dish.average_rating.round(1)%> stars</h4>
+          <h4><%= @worst_dish&.name %>: <%=@worst_dish&.average_rating.round(1)%> stars</h4>
           <p>This is the dish which has the lowest average rating.</p>
         </div>
         <div class = "cards-reviews align-text-reviews">
           <h2>Highest average</h2>
           <i class="fa-solid fa-arrow-trend-up icon-reviews"></i>
-          <h4><%=@best_dish.name%>: <%=@best_dish.average_rating.round(1)%> stars</h4>
+          <h4><%=@best_dish&.name%>: <%=@best_dish&.average_rating.round(1)%> stars</h4>
           <p>This is the dish which has the lowest average rating.</p>
         </div>
 
