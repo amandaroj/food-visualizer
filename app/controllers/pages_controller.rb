@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :scanned, :dishes ]
 
   def home
   end
@@ -12,7 +12,6 @@ class PagesController < ApplicationController
     @restaurants = current_user.restaurants
     # listen to what restaurant is clicked and define @restaurant
     # I have all the restaurants, per restaurant I need to find all menus
-    @menus = ""
     @restaurants.each do |restaurant|
       @menus = Menu.where(restaurant_id: restaurant.id)
     end
@@ -23,7 +22,8 @@ class PagesController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     # every time you execute the next line:
     Restaurant.increment_counter(:scans_count, @restaurant.id)
-    @menus = Menu.where(restaurant_id: @restaurant.id)
+
+    redirect_to restaurant_path(@restaurant)
   end
 
   def preview_scanned

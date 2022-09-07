@@ -67,7 +67,7 @@
             <% if @menu.restaurant.users.include?(current_user) %>
               <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary-button" %>
             <% else %>
-              <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary-button" %>
+              <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary-button mt-4" %>
             <% end %>
             <span class="fw-bold fs-5 me-1"><%= dish.price %> €</span>
           </div>
