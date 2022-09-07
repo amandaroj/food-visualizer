@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     # optional: you can also acces @restaurant.menus
+    @current_user_is_owner = @restaurant.users.include?(current_user)
+
     @menus = Menu.where({ restaurant_id: @restaurant.id }) # does not work, WHY?
     # @menus = Menu.where(restaurant_id == @restaurant.id) # does not work, WHY?
     # it will read restaurant_id as a column, so to acces column names, you always have to be a key, so whatever
