@@ -10,7 +10,11 @@ require "open-uri"
 Restaurant.destroy_all
 User.destroy_all
 
-r = Restaurant.create!(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
+r = Restaurant.new(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662485755/FoodVisualizer/veganjunkies_fryafu.png")
+r.photos.attach(io: file, filename: "veganjunkies.png", content_type: "image/png")
+r.save
+
 u = User.create!(email: "ealhaverkort@gmail.com", password: "1234567890", first_name: "Eva", last_name: "Haverkort")
 
 UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
@@ -104,7 +108,7 @@ file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/F
 tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
 tacos.save
 
-jarritos = Dish.new(name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 11)
+jarritos = Dish.new(name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 3)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
 jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
 jarritos.save
