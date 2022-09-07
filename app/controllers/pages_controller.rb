@@ -81,8 +81,12 @@ class PagesController < ApplicationController
 
     # BEST AND WORST DISH
     @dishes = Dish.all
-    @best_dish = @dishes.sort_by(&:average_rating).last
-    @worst_dish = @dishes.sort_by(&:average_rating).first
+    rated_dishes = []
+    @dishes.each do |dish|
+      rated_dishes << dish if dish.average_rating != 0
+    end
+    @best_dish = rated_dishes.sort_by(&:average_rating).last
+    @worst_dish = rated_dishes.sort_by(&:average_rating).first
   end
 
 
