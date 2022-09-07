@@ -56,7 +56,8 @@
 }
 
 .exclamation {
-  color: rgb(255, 89, 0);
+  // color: rgb(255, 89, 0);
+  color: #FF914D;
 }
 
 .board-visits{
@@ -113,9 +114,10 @@
 
 .restaurants-div {
   // background:  #F1961A;
-  // border: solid #FF914D;
+  border: solid 3px #FF914D;
+  // border: solid 3px rgb(255, 89, 0);
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
   border-radius: 13px;
   margin: 18px 18px 18px 18px;
   padding: 20px;
