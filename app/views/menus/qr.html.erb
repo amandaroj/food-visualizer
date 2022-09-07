@@ -1,5 +1,11 @@
-<div class = "qr-container">
-<h1> Your QR-code: </h1>
-<br>
-<%= @svg.html_safe %>
+<div class= "container">
+  <h1 class= "text-center mt-4">  <%= @restaurant.name %>  QR-code </h1>
+  <br>
+  <div class="center-qr ">
+    <div class="shadow p-3 mb-5 bg-white rounded", style="max-width: 18rem;">
+      <div class="card-body">
+        <%= @svg.html_safe %>
+      </div>
+    </div>
+  </div>
 </div>

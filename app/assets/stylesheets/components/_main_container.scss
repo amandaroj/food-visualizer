@@ -3,8 +3,14 @@
 }
 
 .qr-container {
-  padding: 20px;
-  margin-left: 20px;
+  border-radius: 7px;
+  box-shadow: 20%;
+}
+
+.center-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .qr-container h1{
