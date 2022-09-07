@@ -29,7 +29,7 @@ puts "Created #{u.first_name}!"
 UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
 
 m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id)
-burrito = Dish.new(average_rating: 3, name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
+burrito = Dish.new(dish_type: "starter", average_rating: 3, name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
 puts "Created #{m.name}!"
 
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462448/FoodVisualizer/burrito_dlidn8.jpg")
@@ -40,24 +40,14 @@ puts "Created #{burrito.name}!"
 Review.create!(content: "Best burrito in town", rating: 5, dish_id: burrito.id)
 Review.create!(content: "Very good, but a little dry", rating: 4, dish_id: burrito.id)
 
-quesadilla = Dish.new(average_rating: 3, name: "Quesadilla", menu_id: m.id, description: "Tortilla filled with cheese", price: 11)
+quesadilla = Dish.new(dish_type: "starter", average_rating: 3, name: "Quesadilla", menu_id: m.id, description: "Tortilla filled with cheese", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662474975/FoodVisualizer/quesadilla_zvq6hw.jpg")
 quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "image/jpg")
 quesadilla.save
 puts "Created #{quesadilla.name}!"
 Review.create!(content: "Very good", rating: 4, dish_id: quesadilla.id)
 
-tacos = Dish.new(dish_type: starter: 4, name: "Tacos", menu_id: m.id, description: "Corn-based tortilla", price: 11)
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/FoodVisualizer/tacos_m7dzgc.jpg")
-tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
-tacos.save
-puts "Created #{tacos.name}!"
-
-Review.create!(content: "Taste like feet", rating: 0, dish_id: tacos.id)
-Review.create!(content: "The tortilla was not corn-based like they said", rating: 2, dish_id: tacos.id)
-
-
-jarritos = Dish.new(dish_type: starter: 5, name: "Jarritos", menu_id: m.id, description: "Mexican Soda", price: 11)
+jarritos = Dish.new(dish_type: "starter", average_rating: 5, name: "Jarritos", menu_id: m.id, description: "Mexican Soda", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
 jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
 jarritos.save
@@ -65,7 +55,7 @@ puts "Created #{jarritos.name}!"
 Review.create!(content: "The BEST soda!", rating: 5, dish_id: jarritos.id)
 
 
-churros = Dish.new(dish_type: starter: 5, name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
+churros = Dish.new(dish_type: "starter", average_rating: 5, name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475217/FoodVisualizer/churros_lkpkor.jpg")
 churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
 churros.save
@@ -73,7 +63,7 @@ puts "Created #{churros.name}!"
 Review.create!(content: "Perfect churros!", rating: 5, dish_id: churros.id)
 Review.create!(content: "Loved it!", rating: 5, dish_id: churros.id)
 
-pizza = Dish.new(dish_type: starter: 3, name: "Pizza", menu_id: m.id, description: "Pizza with tomato sauce and other stuff", price: 9)
+pizza = Dish.new(dish_type: "starter", average_rating: 3, name: "Pizza", menu_id: m.id, description: "Pizza with tomato sauce and other stuff", price: 9)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462452/FoodVisualizer/mozzarella-pizza_xspplw.jpg")
 pizza.photos.attach(io: file, filename: "mozzarellapizza.jpg", content_type: "image/jpg")
 pizza.save
@@ -81,7 +71,7 @@ puts "Created #{pizza.name}!"
 Review.create!(content: "The tomato sauce tastes like ketchup", rating: 2, dish_id: pizza.id)
 
 
-brownie = Dish.new(dish_type: starter: 3, name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
+brownie = Dish.new(dish_type: "starter", average_rating: 3, name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662390720/FoodVisualizer/803vmgu9vpdffydzdffe6amj8cxj.jpg")
 brownie.photos.attach(io: file, filename: "brownie.jpg", content_type: "image/jpg")
 brownie.save
@@ -90,7 +80,7 @@ Review.create!(content: "Perfect! Better than my husband's", rating: 5, dish_id:
 
 
 dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id)
-onionsoup = Dish.new(dish_type: starter: 3, name: "Onion Soup", menu_id: dm.id, description: "Soup with onions and butter", price: 13)
+onionsoup = Dish.new(dish_type: "starter", average_rating: 3, name: "Onion Soup", menu_id: dm.id, description: "Soup with onions and butter", price: 13)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462450/FoodVisualizer/onion-soup_ily3pn.jpg")
 onionsoup.photos.attach(io: file, filename: "onionsoup.jpg", content_type: "image/jpg")
 onionsoup.save
@@ -147,12 +137,6 @@ quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "im
 quesadilla.save
 puts "Created #{quesadilla.name}!"
 
-tacos = Dish.new(dish_type: "desert", average_rating: 3, name: "Tacos", menu_id: sm.id, description: "Corn-based tortilla", price: 11)
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475138/FoodVisualizer/tacos_m7dzgc.jpg")
-tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
-tacos.save
-puts "Created #{tacos.name}!"
-
 jarritos = Dish.new(dish_type: "desert", average_rating: 3, name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 3)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662475340/FoodVisualizer/jarritos_mqbpqs.jpg")
 jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
@@ -206,7 +190,7 @@ UserRestaurant.create!(user_id: u.id, restaurant_id: z.id) # or (user: u, restau
 lfm = Menu.create!(name: "Dinner menu", category: "dinner", restaurant_id: z.id)
 puts "Created #{lfm.name}!"
 
-cesarsalad = Dish.new(dish_type: "main", average_rating: 3, name: "Cesar Salad", menu_id: lfm.id, description: "Chopped ro"main"e lettuce with garlicky croutons and a creamy sauce", price: 9)
+cesarsalad = Dish.new(dish_type: "main", average_rating: 3, name: "Cesar Salad", menu_id: lfm.id, description: "Chopped romaine lettuce with garlicky croutons and a creamy sauce", price: 9)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462449/FoodVisualizer/ceasar-salad_ozank0.jpg")
 cesarsalad.photos.attach(io: file, filename: "cesarsalad.jpg", content_type: "image/jpg")
 cesarsalad.save
@@ -266,7 +250,7 @@ pho.photos.attach(io: file, filename: "pho.jpg", content_type: "image/jpg")
 pho.save
 puts "Created #{pho.name}!"
 
-buncha = Dish.new(average_rating: "starter" 3, name: "Bún Chà", menu_id: vlm.id, description: "Rice vermicelli with grilled pork and meatball", price: 10)
+buncha = Dish.new(dish_type: "starter", average_rating: 3, name: "Bún Chà", menu_id: vlm.id, description: "Rice vermicelli with grilled pork and meatball", price: 10)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462448/FoodVisualizer/bun-cha_bzkf3j.jpg")
 buncha.photos.attach(io: file, filename: "buncha.jpg", content_type: "image/jpg")
 buncha.save

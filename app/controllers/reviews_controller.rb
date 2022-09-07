@@ -18,18 +18,22 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.dish_id = @dish.id
     if @review.save
-      Dish.update(@dish.id, :average_rating => ((@dish.average_rating + @review.rating)/Review.where(dish: @dish).size))
+      Dish.update(@dish.id, average_rating: ((@dish.average_rating + @review.rating)/Review.where(dish: @dish).size))
       @review.concerned_users.each do |user|
         ReviewChannel.broadcast_to(
           user,
-          render_to_string(partial: "review", locals: {review: @review}) # this review is the one that is just saved
+          render_to_string(partial: "review", locals: { review: @review }) # this review is the one that is just saved
         )
-        if @review.rating < 3
-          AlertChannel.broadcast_to(
-            user,
-            render_to_string(partial: "bad_review", locals: {review: @review})
-          )
-        end
+        # next means: move to the next iteration if @review.rating > 3, so it only goes to what is below
+        # if the ratings is smaller than 3. return would stop running the iteration.
+
+        # Skip AlertChannel if rating is greater than 3
+        next if @review.rating > 3
+
+        AlertChannel.broadcast_to(
+          user,
+          render_to_string(partial: "bad_review", locals: { review: @review })
+        )
       end
       redirect_to dishes_path(@menu.id)
     else
