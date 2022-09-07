@@ -32,6 +32,7 @@
   text-align: left;
   padding: 20px;
   margin: 20px;
+  height: 440px
 }
 
 
@@ -43,6 +44,7 @@
   text-align: left;
   padding: 20px;
   margin: 20px;
+  height: 560px;
 }
 
 .edit {
@@ -54,13 +56,15 @@
 }
 
 .exclamation {
-  color: rgb(255, 89, 0);
+  // color: rgb(255, 89, 0);
+  color: #FF914D;
 }
 
 .board-visits{
   margin-top: 20px;
   background: white;
   border-radius: 15px;
+  border: solid rgba(0, 0, 0, 0.18);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   margin-bottom: 20px;
   text-align: left;
@@ -102,21 +106,23 @@
 
 .scans-div {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  background: rgba(255, 217, 164, 0.864);
-
+  background:white;
   border-radius: 13px;
   margin: 20px 20px 20px 20px;
   padding: 20px;
-  height: 95%;
+  height: 440px;
 }
+
 .restaurants-div {
   // background:  #F1961A;
-  background: rgba(255, 217, 164, 0.864);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: solid 3px #FF914D;
+  // border: solid 3px rgb(255, 89, 0);
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
   border-radius: 13px;
-  margin: 20px 20px 20px 20px;
+  margin: 18px 18px 18px 18px;
   padding: 20px;
-  height: 95%;
+  height: 560px;
 }
 
 .no-text-decoration {

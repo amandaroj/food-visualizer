@@ -57,7 +57,7 @@ tacos.photos.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
 tacos.save
 puts "Created #{tacos.name}!"
 
-Review.create!(content: "Taste like feet", rating: 0, dish_id: tacos.id)
+Review.create!(content: "Tastes like feet", rating: 0, dish_id: tacos.id)
 Review.create!(content: "The tortilla was not corn-based like they said", rating: 2, dish_id: tacos.id)
 
 
