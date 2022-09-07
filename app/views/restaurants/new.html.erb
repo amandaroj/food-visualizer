@@ -1,9 +1,17 @@
-<div>
-<h1>New restaurant</h1>
-<%= simple_form_for [@restaurant] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :owner %>
-  <%= f.input :location %>
-  <%= f.submit "Create restaurant", class: "btn btn-secondary" %>
-<% end %>
+<div class ="container">
+  <br>
+  <h1 class="text-center">New restaurant</h1>
+    <div class="mx-auto" style="width: 500px;">
+      <%= simple_form_for [@restaurant] do |f| %>
+        <%= f.input :name, input_html: { class: "form-radius" } %>
+        <%= f.input :owner, input_html: { class: "form-radius" } %>
+        <%= f.input :location, input_html: { class: "form-radius" } %>
+        <div class="mb-3">
+          <%= f.input :photo, as: :file, label: "Upload Photo", input_html: { class: "form-radius" } %>
+        </div>
+        <div class="text-center mt-4">
+          <%= f.submit "Create restaurant", class: "main-button" %>
+        </div>
+        <% end %>
+      </div>
 </div>
