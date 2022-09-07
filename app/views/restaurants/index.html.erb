@@ -8,7 +8,12 @@
     <div class="board-restaurants-index mb-3">
     <% @restaurants.each do |restaurant|%>
     <div class = "card-index-restaurants card me-4">
-      <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
+      <%# <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
+      <% if restaurant.photo.key %>
+        <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "photos-cards-dashboard" %>
+      <% else %>
+        <%= image_tag "/assets/logo.jpeg", class: "photos-cards-dashboard" %>
+      <% end %>
       <div class="p-3">
         <div class="card-body-restaurants p-0 mb-3 d-flex justify-content-between">
           <div>
