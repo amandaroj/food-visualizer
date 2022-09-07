@@ -179,7 +179,10 @@ hazelnutbrownie.photos.attach(io: file, filename: "hazelnutbrownie.jpg", content
 hazelnutbrownie.save
 puts "Created #{hazelnutbrownie.name}!"
 
-z = Restaurant.create!(name: "La Follia", owner: "Felicite", location: "Lisbon")
+z = Restaurant.new(name: "Bon Ton", owner: "Felicite", location: "Lisbon")
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662549160/FoodVisualizer/bonton_d9mpea.jpg")
+z.photo.attach(io: file, filename: "bonton.jpg", content_type: "image/jpg")
+z.save
 puts "Created #{z.name}!"
 
 UserRestaurant.create!(user_id: u.id, restaurant_id: z.id) # or (user: u, restaurant: r)
