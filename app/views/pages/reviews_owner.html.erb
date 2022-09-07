@@ -1,4 +1,5 @@
 <div class = "m-4 pb-4">
+<h1 class="text-justify">Dashboard > Reviews </h1>
   <div class="d-flex justify-content-between">
     <div class="cards-reviews me-3" id="cards-reviews-search">
       <h2>All reviews per dish</h2>
@@ -32,7 +33,7 @@
         <div class = "cards-reviews me-3 align-text-reviews">
           <h2>Lowest average</h2>
           <i class="fa-solid fa-arrow-trend-down icon-reviews"></i>
-          <h4><%=@worst_dish.name%>: <%=@worst_dish.average_rating.round(1)%> stars</h4>
+          <h4><%= @worst_dish.name %>: <%=@worst_dish.average_rating.round(1)%> stars</h4>
           <p>This is the dish which has the lowest average rating.</p>
         </div>
         <div class = "cards-reviews align-text-reviews">
@@ -50,14 +51,15 @@
     <div class = "d-flex flex-row">
       <div class="cards-reviews graph  me-3">
         <h2>Average rating per dish</h2>
-        <%= bar_chart Dish.group(:name).sum(:average_rating), colors: ["#F58222"] %>
+        <div class = "m-2 pe-2">
+          <%= bar_chart Dish.group(:name).sum(:average_rating), colors: ["#F58222"], height: "700px", min: 0, max: 5%>
+        </div>
       </div>
 
       <div class="cards-reviews all-reviews ">
         <h2>All reviews</h2>
-        <br>
           <%# import all the reviews here and sort them by created at date %>
-          <% @all_reviews.each do |review| %>
+          <% @all_reviews[0..8].each do |review| %>
             <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
             <p><%= review.content %></p>
           <% end%>
