@@ -195,9 +195,9 @@ hazelnutbrownie.photos.attach(io: file, filename: "hazelnutbrownie.jpg", content
 hazelnutbrownie.save
 puts "Created #{hazelnutbrownie.name}!"
 
-z = Restaurant.new(name: "Bon Ton", owner: "Felicite", location: "Lisbon")
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662549160/FoodVisualizer/bonton_d9mpea.jpg")
-z.photo.attach(io: file, filename: "bonton.jpg", content_type: "image/jpg")
+z = Restaurant.new(name: "Faustino", owner: "Felicite", location: "Lisbon")
+file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662556434/FoodVisualizer/Logotipo_para_Restaurante_e_Pizzaria_Simples_kokzwy.png")
+z.photo.attach(io: file, filename: "bonton.png", content_type: "image/png")
 z.save
 puts "Created #{z.name}!"
 
