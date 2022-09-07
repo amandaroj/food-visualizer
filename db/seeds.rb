@@ -83,9 +83,8 @@ pizza.save
 puts "Created #{pizza.name}!"
 Review.create!(content: "The tomato sauce tastes like ketchup", rating: 2, dish_id: pizza.id)
 
-
 brownie = Dish.new(dish_type: "starter", average_rating: 3, name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
-file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662390720/FoodVisualizer/803vmgu9vpdffydzdffe6amj8cxj.jpg")
+file = URI.open("https://s2.glbimg.com/vqYi183ffGVXrWf7M5Evsl5S7Zo=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2022/l/5/Cp3xMbQuAcz2sbHhszzw/capa-materia-gshow-2022-01-11t111649.282.png")
 brownie.photos.attach(io: file, filename: "brownie.jpg", content_type: "image/jpg")
 brownie.save
 puts "Created #{brownie.name}!"
