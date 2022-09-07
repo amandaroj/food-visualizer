@@ -28,7 +28,7 @@ puts "Created #{u.first_name}!"
 
 UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
 
-m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id)
+m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id, description: 'Suggestions of dishes to surprise your palate, keep your health up to date.')
 burrito = Dish.new(name: "Burrito", menu_id: m.id, description: "Tortilla with meat and tomatoes", price: 11)
 puts "Created #{m.name}!"
 
@@ -89,7 +89,8 @@ puts "Created #{brownie.name}!"
 Review.create!(content: "Perfect! Better than my husband's", rating: 5, dish_id: churros.id)
 
 
-dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id)
+dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id, description:'
+  Delicious and healthy recipes in generous portions. To eat warm, share or serve that unexpected visit with practicality.')
 onionsoup = Dish.new(name: "Onion Soup", menu_id: dm.id, description: "Soup with onions and butter", price: 13)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662462450/FoodVisualizer/onion-soup_ily3pn.jpg")
 onionsoup.photos.attach(io: file, filename: "onionsoup.jpg", content_type: "image/jpg")
@@ -114,7 +115,8 @@ churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jp
 churros.save
 puts "Created #{churros.name}!"
 
-sm = Menu.create!(name: "Summer menu", category: "lunch", restaurant_id: r.id)
+sm = Menu.create!(name: "Summer menu", category: "lunch", restaurant_id: r.id, description: '
+  Healthy options for you to have fresh bread wherever and whenever you want, with that bakery aroma and incredible flavor.')
 puts "Created #{sm.name}!"
 
 cesarsalad = Dish.new(name: "Cesar Salad", menu_id: sm.id, description: "Chopped romaine lettuce with garlicky croutons and a creamy sauce", price: 9)
@@ -173,7 +175,7 @@ puts "Created #{b.email}!"
 
 UserRestaurant.create!(user_id: b.id, restaurant_id: a.id) # or (user: u, restaurant: r)
 
-lkm = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: a.id)
+lkm = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: a.id, description: 'At breakfast or lunch, at school or work, whether sweet or savory, there is only one option here: to be tasty and healthy.')
 puts "Created #{lkm.name}!"
 
 poke = Dish.new(name: "Poke", menu_id: lkm.id, description: "Diced raw fish", price: 9)
@@ -203,7 +205,7 @@ puts "Created #{z.name}!"
 
 UserRestaurant.create!(user_id: u.id, restaurant_id: z.id) # or (user: u, restaurant: r)
 
-lfm = Menu.create!(name: "Dinner menu", category: "dinner", restaurant_id: z.id)
+lfm = Menu.create!(name: "Dinner menu", category: "dinner", restaurant_id: z.id, description:'A mixture of colors and flavors that came out of the earth, full of life, and will end up on your plate.')
 puts "Created #{lfm.name}!"
 
 cesarsalad = Dish.new(name: "Cesar Salad", menu_id: lfm.id, description: "Chopped romaine lettuce with garlicky croutons and a creamy sauce", price: 9)
@@ -245,7 +247,7 @@ puts "Created #{us.email}!"
 
 UserRestaurant.create!(user_id: us.id, restaurant_id: vn.id)
 
-vlm = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: vn.id)
+vlm = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: vn.id, description:'A lot of healthy and natural options to sweeten your taste and your day')
 puts "Created #{vlm.name}!"
 
 bobun = Dish.new(name: "Bò Bún", menu_id: vlm.id, description: "Rice vermicelli with stir-fried beef and spring rolls", price: 11)
