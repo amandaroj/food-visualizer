@@ -72,7 +72,7 @@
       <div class="cards-reviews all-reviews ">
         <h2>All reviews</h2>
           <%# import all the reviews here and sort them by created at date %>
-          <% @all_reviews[0..8].each do |review| %>
+          <% @all_reviews[0..6].each do |review| %>
           <div class="review-card-pretty">
               <h4><%= review.dish.name %> - <%= review.rating %> stars</h4>
               <p><%= review.content %></p>
