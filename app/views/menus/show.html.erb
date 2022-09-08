@@ -3,7 +3,12 @@
     <div class = "title">
       <br>
       <h1><%= @menu.name %></h1>
-
+      <% if @current_user_is_owner && @preview_mode %>
+        <%= link_to :back, class: "secondary-button py-1 px-3" do %>
+          <i class="fa-solid fa-circle-arrow-left"></i>
+        <% end %>
+        <h4 class="badge rounded-pill fs-4 category-pill ms-4">Preview</h4>
+      <% end %>
       <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
     </div>
     <% if @current_user_is_owner && !@preview_mode %>
