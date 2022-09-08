@@ -1,13 +1,23 @@
 
 <div class= "container">
-  <h1 class= "text-center mt-4">  <%= @restaurant.name %></h1>
+  <h1 class= "text-center mt-5">  <%= @restaurant.name %></h1>
   <h3 class= "text-center mt-4 fw-normal"><em>Scan this QR Code to see our delicious dishes!</em></h3>
-  <br>
-  <div class="center-qr">
+  <div class="center-qr mt-5 position-relative">
     <div class="shadow p-3 mb-5 bg-white rounded", style="max-width: 18rem;">
       <div class="card-body">
         <%= @svg.html_safe %>
       </div>
     </div>
   </div>
+  <div class="arrow-back-btn fs-4" style= "margin-top: -500px; margin-left: -65px; ">
+    <%= link_to :back, class: "back-btn-color" do %>
+          <i class="fa-solid fa-arrow-left-long"></i>
+        <% end %>
+  </div>
 </div>
+
+
+      <%# <div class="btns-menu-dishes">
+        <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
+          <%# <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
+        <%# <% end %>
