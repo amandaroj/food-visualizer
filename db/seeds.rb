@@ -32,7 +32,7 @@ puts "\n"
 
 puts "Creating Restaurants..."
 puts "creating new restaurant"
-r = Restaurant.new(name: "Vegan Junkies", owner: "Felicite", location: "near campus")
+r = Restaurant.new(name: "Vegan Junkies", owner: "Eva Haverkort", location: "Near campus")
 puts "opening a file"
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630511/FoodVisualizer/Original/va2pzag9efs8lrfso067rev540tm.png")
 puts "attaching picture"
@@ -188,7 +188,7 @@ puts "Created #{churros.name}!"
 # puts "Created #{lkm.name}!"
 
 
-z = Restaurant.new(name: "Faustino", owner: "Felicite", location: "Lisbon")
+z = Restaurant.new(name: "Faustino", owner: "Eva Haverkort", location: "Lisbon")
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662627354/FoodVisualizer/Original/jhm0wo3s4ynhsd5tvbay1qvu9wi4.png")
 z.photo.attach(io: file, filename: "bonton.png", content_type: "image/png")
 z.save
