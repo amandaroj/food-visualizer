@@ -3,16 +3,17 @@
 margin-left: 10px;", style: "left: -65px; top: 15px" do %>
     <i class="fa-solid fa-arrow-left-long"></i>
   <% end %>
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex justify-content-between align-items-center top-show-page">
     <div class = "title">
       <br>
       <h1><%= @menu.name %></h1>
-
+  <div class="show-page__menu-names">
       <% if @current_user_is_owner && @preview_mode %>
         <h4 class="badge rounded-pill fs-4 category-pill ms-4">Preview</h4>
       <% end %>
       <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
     </div>
+   </div>
     <% if @current_user_is_owner && !@preview_mode %>
       <div class="btns-menu-dishes">
         <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47 mx-2" do %>
