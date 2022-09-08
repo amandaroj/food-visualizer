@@ -64,7 +64,7 @@
                   </div>
                   <% dish.photos.drop(1).each do |photo| %>
                     <div class="carousel-item">
-                      <%= cl_image_tag photo.key, class: 'd-block picture-dish-card', height: 150, width: 150 %>
+                      <%= cl_image_tag photo.key, class: 'd-block card-picture-borders picture-dish-card', height: 150, width: 150 %>
                     </div>
                   <% end %>
                 </div>
