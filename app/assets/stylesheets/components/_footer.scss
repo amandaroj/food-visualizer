@@ -16,12 +16,13 @@
   display: flex;
   align-items: center;
 }
-.footer-links a {
+.footer-links p {
   color: gainsboro;
   opacity: 1;
   text-decoration: none;
   font-size: 13px;
   padding: 0px 10px;
+  margin-top: 15px;
 }
 
 .footer .fa-heart {
