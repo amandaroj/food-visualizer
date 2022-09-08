@@ -1,15 +1,15 @@
 @media only screen and (max-width: 770px) {
   .top-show-page{
     display: block !important;
-    margin:20px 0px
+    margin: 20px 0px;
   }
 
-  .btns-menu-dishes{
-    flex-wrap:wrap
+  .btns-menu-dishes {
+    flex-wrap: wrap;
   }
 
   .title{
-    display:flex;
+    display: flex;
   }
 
   .show-page__menu-names{
@@ -20,8 +20,19 @@
     padding: 4px 24px;
   }
 
-  .filter-btns{
-    display:flex;
-    flex-wrap:wrap;
+  .filter-btns {
+    display: flex;
+    flex-wrap: wrap;
   }
+  .search-bar-menu {
+  flex-direction: column-reverse;
+  }
+
+  .menu-preview-title {
+    flex-direction: column;
+  }
+}
+
+.menu-preview-title {
+  display: flex;
 }
