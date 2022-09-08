@@ -23,7 +23,9 @@
     <div>
       <div class="cards-reviews align-text-reviews">
         <h2>Average:</h2>
+        <% @average_rating_all_dishes.round(1).times do  %>
         <i class="fa-sharp fa-solid fa-star icon-reviews star"></i>
+        <% end %>
         <h4><%=@average_rating_all_dishes.round(1)%> stars</h4>
         <p>This is the average rating of all your dishes.</p>
       </div>
@@ -60,8 +62,10 @@
         <h2>All reviews</h2>
           <%# import all the reviews here and sort them by created at date %>
           <% @all_reviews[0..8].each do |review| %>
-            <h4>><%= review.dish.name %> - <%= review.rating %> stars</h4>
-            <p><%= review.content %></p>
+          <div class="review-card-pretty">
+              <h4><%= review.dish.name %> - <%= review.rating %> stars</h4>
+              <p><%= review.content %></p>
+          </div>
           <% end%>
       </div>
     </div>
