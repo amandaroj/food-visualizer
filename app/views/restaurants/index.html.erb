@@ -7,7 +7,7 @@
   <div class="d-flex justify-content-between">
     <div class="board-restaurants-index mb-3">
     <% @restaurants.each do |restaurant|%>
-    <div class = "card-index-restaurants card me-4">
+    <div class = "card-index-restaurants card">
       <%# <%= cl_image_tag("v1661870846/FoodVisualizer/pexels-photo-4518881_comejf",crop: :fill, class: "photos-cards-dashboard")%>
       <% if restaurant.photo.key %>
         <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "photos-cards-dashboard" %>
@@ -21,8 +21,8 @@
             <p class="m-0"><%=restaurant.owner%></p>
             <p class="m-0"><%=restaurant.location%></p>
           </div>
-            <div class="card-button-menus">
-              <%= link_to restaurant_path(restaurant.id), class: "menus-btn" do %>
+            <div class="card-button-menus ms-3">
+              <%= link_to restaurant_path(restaurant.id), class: "menus-btn me-0" do %>
                 <i class="fa-solid fa-magnifying-glass"></i>
               <%end%>
             </div>
@@ -32,7 +32,7 @@
             <%=link_to "Edit", edit_restaurant_path(restaurant.id), class: "main-button m-0"%>
           </div>
           <div>
-            <%= link_to restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-btn" do%>
+            <%= link_to restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-btn me-0" do%>
               <i class="fa-solid fa-trash"></i>
             <%end%>
           </div>
