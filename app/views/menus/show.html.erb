@@ -2,12 +2,14 @@
   <div class="d-flex justify-content-between align-items-center">
     <div class = "title">
       <br>
+      <%= link_to :back, class: "arrow-back-btn mb-3 back-btn-color text-decoration-none" do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+      <% end %>
+      <br>
       <h1><%= @menu.name %></h1>
+
       <% if @current_user_is_owner && @preview_mode %>
-        <%= link_to :back, class: "secondary-button py-1 px-3" do %>
-          <i class="fa-solid fa-circle-arrow-left"></i>
-        <% end %>
-        <h4 class="badge rounded-pill fs-4 category-pill ms-4">Preview</h4>
+        <h4 class="badge rounded-pill fs-4 category-pill">Preview</h4>
       <% end %>
       <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
     </div>
