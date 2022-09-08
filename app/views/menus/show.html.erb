@@ -1,17 +1,18 @@
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex justify-content-between align-items-center top-show-page">
     <div class = "title">
       <br>
       <%= link_to :back, class: "arrow-back-btn mb-3 back-btn-color text-decoration-none" do %>
         <i class="fa-solid fa-arrow-left-long"></i>
       <% end %>
       <br>
-      <h1><%= @menu.name %></h1>
-
-      <% if @current_user_is_owner && @preview_mode %>
-        <h4 class="badge rounded-pill fs-4 category-pill">Preview</h4>
-      <% end %>
-      <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
+      <div class="show-page__menu-names">
+        <% if @current_user_is_owner && @preview_mode %>
+          <h4 class="badge rounded-pill fs-4 category-pill">Preview</h4>
+        <% end %>
+        <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
+        <h1><%= @menu.name %></h1>
+      </div>
     </div>
     <% if @current_user_is_owner && !@preview_mode %>
       <div class="btns-menu-dishes">
