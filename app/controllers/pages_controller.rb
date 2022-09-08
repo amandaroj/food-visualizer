@@ -18,13 +18,12 @@ class PagesController < ApplicationController
     @reviews = Review.all
     @reviews = @reviews.poor
     @reviews = @reviews.sort_by(&:created_at).reverse!
-   end
+  end
 
   def scanned
     @restaurant = Restaurant.find(params[:restaurant_id])
-    # every time you execute the next line:
+    # every time you execute the next line it is counted:
     Restaurant.increment_counter(:scans_count, @restaurant.id)
-
     redirect_to restaurant_path(@restaurant)
   end
 
