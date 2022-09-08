@@ -7,6 +7,9 @@ import { application } from "./application"
 import AlertsSubscriptionController from "./alerts_subscription_controller"
 application.register("alerts-subscription", AlertsSubscriptionController)
 
+import FilterDishTypeController from "./filter_dish_type_controller"
+application.register("filter-dish-type", FilterDishTypeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

@@ -92,8 +92,11 @@
   text-decoration: none;
 }
 
+.arrow-grey {
+  color: rgb(96, 96, 96);
+}
+
 .dashboard-link:hover{
-  text-decoration: underline;
   color: black;
 }
 
@@ -102,12 +105,6 @@
   max-height: 464px;
 }
 
-.child-restaurant-card{
-  // position: absolute;
-  // right: 43px;
-  // top: 187px;
-  // font-size: 20px;
-}
 // .reviews-alerts {
 //   justify-content: space-between;
 //   .reviews {

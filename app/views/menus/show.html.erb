@@ -20,69 +20,93 @@
       </div>
     <% end %>
   </div>
-  <div class="dish-cards mt-4">
-    <% @dishes.each do |dish| %>
-      <div class="d-flex bg-white h-100 p-3 dish-card position-relative">
-        <div class="me-3">
-          <% if dish.photos.attached? %>
-            <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide width-carousel" data-ride="carousel" data-interval = "false">
-            <%# data-bs-ride to data-ride and added data-interval = "false" %>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <%= cl_image_tag dish.photos.first.key, class: 'd-block card-picture-borders picture-dish-card', height: 150, width: 150 %>
-                </div>
-                <% dish.photos.drop(1).each do |photo| %>
-                  <div class="carousel-item">
-                    <%= cl_image_tag photo.key, class: 'd-block picture-dish-card', height: 150, width: 150 %>
+
+  <%= form_with url: restaurant_menu_path(@menu.restaurant.id, @menu.id), method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
+    <%= submit_tag "Search", class: "button-47" %>
+  <% end %>
+
+  <div class="filter-btns">
+    <%= link_to "All", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit]), class: "filter-button #{'active-button' if params[:dish_type] == nil }" %>
+    <%= link_to "Starters", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "starter"), class: "filter-button #{'active-button' if params[:dish_type] == "starter"}" %>
+    <%= link_to "Main dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "main"), class: "filter-button #{'active-button' if params[:dish_type] == "main"}" %>
+    <%= link_to "Side dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "side"), class: "filter-button #{'active-button' if params[:dish_type] == "side"}" %>
+    <%= link_to "Deserts", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "desert"), class: "filter-button #{'active-button' if params[:dish_type] == "desert"}" %>
+    <%= link_to "Drinks", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "drink"), class: "filter-button #{'active-button' if params[:dish_type] == "drink"}" %>
+
+
+    <%# <% @dish_types.each do |dish_type| %>
+      <%# <%= link_to dish_type.capitalize, restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: dish_type ), class: "filter-button #{'active-button' if params[:dish_type] == dish_type }" %>
+    <%# <% end %>
+  </div>
+
+
+    <%# where should data {filter_dish_type_target = "form"} go if there is no simple form? %>
+
+    <div class="dish-cards mt-4">
+      <% @dishes.each do |dish| %>
+        <div class="d-flex bg-white h-100 p-3 dish-card position-relative">
+          <div class="me-3">
+            <% if dish.photos.attached? %>
+              <div id="carouselExampleControls-<%= dish.id %>" class="carousel slide width-carousel" data-ride="carousel" data-interval = "false">
+              <%# data-bs-ride to data-ride and added data-interval = "false" %>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <%= cl_image_tag dish.photos.first.key, class: 'd-block card-picture-borders picture-dish-card', height: 150, width: 150 %>
                   </div>
-                <% end %>
+                  <% dish.photos.drop(1).each do |photo| %>
+                    <div class="carousel-item">
+                      <%= cl_image_tag photo.key, class: 'd-block picture-dish-card', height: 150, width: 150 %>
+                    </div>
+                  <% end %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= dish.id %>" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
 
-            <%#= cl_image_tag dish.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <%#= cl_image_tag dish.photos.first.key, height: 300, width: 400, crop: :fill %>
 
-          <% else %>
-            <%= image_tag "logo.jpeg", height: 150, width: 150, crop: :fill %>
-            <%# the image tag makes the path for you %>
-          <% end %>
-        </div>
-
-        <div class="d-relative flex-grow-1">
-          <h3><%=dish.name%></h3>
-          <span class="badge rounded-pill fs-6 category-pill mb-2">
-            <%= dish.dish_type%>
-          </span>
-          <p class="mb-1"><%= dish.description %></p>
-
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <% if @current_user_is_owner && !@preview_mode %>
-              <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary-button" %>
             <% else %>
-              <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary-button" %>
+              <%= image_tag "logo.jpeg", height: 150, width: 150, crop: :fill %>
+              <%# the image tag makes the path for you %>
             <% end %>
-            <span class="fw-bold fs-5 me-1"><%= dish.price %> €</span>
           </div>
 
-          <% if @current_user_is_owner && !@preview_mode %>
-            <div class="trashcan position-absolute fs-5 top-0 end-0 mt-2 me-3 badge rounded-4 trash-icon-color">
-              <%= link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
-                <i class="fa-solid fa-trash"></i>
+          <div class="d-relative flex-grow-1">
+            <h3><%=dish.name%></h3>
+            <span class="badge rounded-pill fs-6 category-pill mb-2">
+              <%= dish.dish_type%>
+            </span>
+            <p class="mb-1"><%= dish.description %></p>
+
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <% if @current_user_is_owner && !@preview_mode %>
+                <%=link_to "Edit", edit_restaurant_menu_dish_path(@menu.restaurant, @menu, dish), class: "secondary-button" %>
+              <% else %>
+                <%=link_to "Review", new_restaurant_menu_dish_review_path(@menu.restaurant.id, @menu.id, dish.id), class: "secondary-button" %>
               <% end %>
+              <span class="fw-bold fs-5 me-1"><%= dish.price %> €</span>
             </div>
-          <% end %>
+
+            <% if @current_user_is_owner && !@preview_mode %>
+              <div class="trashcan position-absolute fs-5 top-0 end-0 mt-2 me-3 badge rounded-4 trash-icon-color">
+                <%= link_to restaurant_menu_dish_path(@menu.restaurant, @menu, dish), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do%>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
 
-  <% end%>
+    <% end%>
+    </div>
 
-  </div>
+
   <br>
 </div>

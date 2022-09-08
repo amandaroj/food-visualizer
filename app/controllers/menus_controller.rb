@@ -3,10 +3,27 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    @dishes = Dish.where(menu_id: @menu.id)
+    if params[:query].present?
+      sql_query = "name ILIKE ? AND menu_id = ?" # doesn't make sense I don't have @dish.menu yet
+      @dishes = Dish.where(sql_query, "%#{params[:query]}%", @menu.id) # ? is for passing secret values
+    else
+      @dishes = Dish.where(menu: @menu)
+    end
+
+    @dishes = @dishes.select { |dish| dish.dish_type == params[:dish_type] } if params[:dish_type].present?
+
+    @dish_types = Dish.dish_types.keys
+    
+    # if params[:dish_type].present?
+    #   @dishes = Dish.where(menu_id: @menu.id, dish_type: params[:dish_type])
+    # else
+    #   @dishes = Dish.where(menu_id: @menu.id)
+    # end
 
     @current_user_is_owner = @menu.restaurant.users.include?(current_user)
     @preview_mode = (params[:preview] == "true")
+    # check if the dish_catogeory is present in the url
+    # if present we want to change dishes to where(dish_type)
   end
 
   def new
