@@ -1,2 +1,2 @@
-<h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at.strftime("%m/%d/%Y")%>!</h5>
+<h5> <i class="fa-solid fa-circle-exclamation exclamation"></i> <%=review.dish.name%> got <%=review.rating%> star(s) on <%=review.created_at.strftime("%m/%d/%Y")%>! <i>-<%=review.dish.menu.restaurant.name%></i></h5>
 <p> review: <%=review.content%></p>

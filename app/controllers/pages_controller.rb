@@ -70,14 +70,14 @@ class PagesController < ApplicationController
     input = params[:query].capitalize if params[:query] != nil
     if input.present?
       @dish = Dish.where(name: input).first # problematic if one owner has the same dish on different menus and restaurants
-      if @dish != nil
-      @all_reviews_one_dish = Review.where(dish_id: @dish.id)
-      total_one_dish = 0
-      @all_reviews_one_dish.each do |review|
-        total_one_dish = total_one_dish + review.rating
-      end
-        @average_rating_one_dish = total_one_dish / @all_reviews_one_dish.size
-      end
+      # if @dish != nil
+      #   @all_reviews_one_dish = Review.where(dish_id: @dish.id)
+      #   total_one_dish = 0
+      #   @all_reviews_one_dish.each do |review|
+      #   total_one_dish = total_one_dish + review.rating
+      # end
+      #   @average_rating_one_dish = total_one_dish / @all_reviews_one_dish.size
+      # end
     end
 
     # BEST AND WORST DISH
