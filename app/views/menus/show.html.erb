@@ -23,6 +23,7 @@
 
   <%= form_with url: restaurant_menu_path(@menu.restaurant.id, @menu.id), method: :get, class: "d-flex" do %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
+    <%= hidden_field_tag :dish_type, params[:dish_type] if params[:dish_type].present? %>
     <%= submit_tag "Search", class: "button-47" %>
   <% end %>
 
