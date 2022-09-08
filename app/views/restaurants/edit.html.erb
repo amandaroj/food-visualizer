@@ -1,5 +1,8 @@
 <div class="container">
   <br>
+  <%= link_to :back, class: "arrow-back-btn mb-3 back-btn-color text-decoration-none" do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+      <% end %>
   <h1 class = "text-center">Edit your restaurant</h1>
     <div class="mx-auto" style="width: 500px;">
       <%= simple_form_for [@restaurant] do |f| %>
