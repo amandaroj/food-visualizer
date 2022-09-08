@@ -7,6 +7,20 @@ require "open-uri"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Deleting Restaurant Photos..."
+Restaurant.all.each do |restaurant|
+  restaurant.photo.destroy
+  puts "#{restaurant.name} photos deleted!"
+end
+
+puts "Deleting Dishes Photos..."
+Dish.all.each do |dish|
+  dish.photos.each do |photo|
+    photo.destroy
+  end
+  puts "#{dish.name} photos deleted!"
+end
+
 puts "Destroying Restaurants..."
 Restaurant.destroy_all
 puts "Destroying Users..."
