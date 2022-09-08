@@ -13,7 +13,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+            <div class = "me-3">
+              <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item active">
             <%#= @user.first_name %> <%#= @user.last_name %>

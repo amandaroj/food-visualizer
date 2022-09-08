@@ -26,6 +26,36 @@
   word-break: break-word;
 }
 
+.active-button{
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.filter-button:hover{
+  font-weight: bold;
+  color: #7e7e7e;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.filter-button{
+  font-size: 20px;
+  color: #7e7e7e;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.filter-btns {
+  margin-top: 10px;
+}
+
+
 .button-45:active,
 .button-45:hover,
 .button-45:focus {
@@ -233,6 +263,16 @@
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 15px;
+  font-weight: bold;
+}
+
+.search-button {
+  padding: 4px 50px;
+  background-color: rgb(63, 63, 63);
+  color: white;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 10px;
   font-weight: bold;
 }
 
