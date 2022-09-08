@@ -4,7 +4,13 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  // border-bottom: solid #FF914D;
+  // background:
+  // linear-gradient(45deg, #FF552D 0%, #F1961A  51%, #FF512F  100%)
+  //   bottom
+  //   white
+  //   no-repeat;
+  // background-size:100% 2px ;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-lewagon .navbar-collapse {

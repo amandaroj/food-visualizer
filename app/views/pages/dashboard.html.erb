@@ -78,7 +78,7 @@
 
   <div class="d-flex justify-content-between">
     <div class="col-6">
-      <div class="board-reviews">
+      <div class="board-reviews h-100">
         <h2 class = "mb-0">Reviews</h2>
         <p>Most recent reviews</p>
         <%if @reviews.empty?%>
@@ -102,7 +102,7 @@
     </div>
 
     <div class="col-6">
-    <div class='scans-div'>
+    <div class='scans-div h-100'>
         <h2>Scans</h2>
         <div class="d-flex justify-content-around">
           <%@restaurants.each do |restaurant| %>

@@ -164,7 +164,7 @@ quesadilla.photos.attach(io: file, filename: "quesadilla.jpg", content_type: "im
 quesadilla.save
 puts "Created #{quesadilla.name}!"
 
-jarritos = Dish.new(dish_type: :desert, average_rating: 3, name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 3)
+jarritos = Dish.new(dish_type: :drink, average_rating: 3, name: "Jarritos", menu_id: sm.id, description: "Mexican Soda", price: 3)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630563/FoodVisualizer/Original/hyiiu4c0veo84zs9jbtycs7svlt5.jpg")
 jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/jpg")
 jarritos.save
