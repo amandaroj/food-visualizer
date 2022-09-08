@@ -13,7 +13,7 @@ class MenusController < ApplicationController
     @dishes = @dishes.select { |dish| dish.dish_type == params[:dish_type] } if params[:dish_type].present?
 
     @dish_types = Dish.dish_types.keys
-    
+
     # if params[:dish_type].present?
     #   @dishes = Dish.where(menu_id: @menu.id, dish_type: params[:dish_type])
     # else
@@ -63,7 +63,7 @@ class MenusController < ApplicationController
 
   def qr
     @restaurant = Restaurant.find(params[:restaurant_id])
-      @qrcode = RQRCode::QRCode.new("https://foodvisualizer.com/scanned/?restaurant_id=#{@restaurant.id}")
+    @qrcode = RQRCode::QRCode.new("www.foodvisualizer.com/scanned/?restaurant_id=#{@restaurant.id}")
     @svg = @qrcode.as_svg(
       offset: 0,
       color: '000',
