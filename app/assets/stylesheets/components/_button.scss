@@ -388,6 +388,11 @@
   background: white;
   border-radius: 28px;
   display: inline-flex;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+  }
 
   i {
     font-size: 30px;
