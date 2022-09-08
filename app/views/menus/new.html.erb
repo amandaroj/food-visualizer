@@ -1,9 +1,14 @@
-<div>
-<h1>New menu</h1>
-<%= simple_form_for [@restaurant, @menu] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.submit "Create Menu", class: "btn btn-secondary" %>
-<% end %>
+<div class="container">
+  <br>
+  <h1 class="text-center">New menu</h1>
+    <div class="mx-auto" style="width: 500px;">
+      <%= simple_form_for [@restaurant, @menu] do |f| %>
+        <%= f.input :name, input_html: { class: "form-radius" } %>
+        <%= f.input :category, input_html: { class: "form-radius" } %>
+        <%= f.input :description, input_html: { class: "form-radius" } %>
+    <div class="text-center mt-4">
+      <%= f.submit "Create Menu", class: "main-button" %>
+      </div>
+      <% end %>
+    </div>
 </div>
