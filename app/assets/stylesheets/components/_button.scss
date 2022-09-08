@@ -33,11 +33,6 @@
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.filter-button:hover{
-  font-weight: bold;
-  color: #7e7e7e;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
 
 .filter-button{
   font-size: 20px;
@@ -45,10 +40,15 @@
   text-decoration: none;
   background-color: white;
   border-radius: 6px;
-  padding-left: 6px;
-  padding-right: 6px;
-  margin-right: 10px;
-  margin-top: 10px;
+  padding: 0 16px;
+  margin: 10px 10px 0 0;
+  border: 1px solid #d3d3d3;
+}
+
+.filter-button:hover{
+  background: #b7b7b7;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .filter-btns {
@@ -94,7 +94,6 @@
   font-family: Inter, sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  height: 40px;
   justify-content: center;
   line-height: 24px;
   overflow-wrap: break-word;
@@ -106,7 +105,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 10px;
+
 
   &:hover {
     color: #fb411c;
@@ -226,7 +225,7 @@
 }
 
 .main-button {
-  padding: 9px 30px;
+  padding: 15px 30px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;

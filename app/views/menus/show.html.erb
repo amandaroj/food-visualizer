@@ -1,51 +1,54 @@
-<div class="container">
+<div class="container position-relative">
+  <%= link_to :back, class: "position-absolute arrow-back-btn fs-5 mt-2 back-btn-color text-decoration-none margin-left: 10px;", style: style="
+margin-left: 10px;", style: "left: -65px; top: 15px" do %>
+    <i class="fa-solid fa-arrow-left-long"></i>
+  <% end %>
   <div class="d-flex justify-content-between align-items-center">
     <div class = "title">
-      <br>
-      <%= link_to :back, class: "arrow-back-btn mb-3 back-btn-color text-decoration-none" do %>
-        <i class="fa-solid fa-arrow-left-long"></i>
-      <% end %>
       <br>
       <h1><%= @menu.name %></h1>
 
       <% if @current_user_is_owner && @preview_mode %>
-        <h4 class="badge rounded-pill fs-4 category-pill">Preview</h4>
+        <h4 class="badge rounded-pill fs-4 category-pill ms-4">Preview</h4>
       <% end %>
       <h4 class="fw-light text-secondary"><%= @menu.restaurant.name %></h4>
     </div>
     <% if @current_user_is_owner && !@preview_mode %>
       <div class="btns-menu-dishes">
-        <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47" do %>
+        <%= link_to qr_path(restaurant_id: @menu.restaurant), class: "button-47 mx-2" do %>
           <i class="fa-solid fa-qrcode"></i> &nbsp; QR Code
         <% end %>
 
-        <%= link_to restaurant_menu_path(@menu.restaurant, preview: "true"), class: "button-47" do %>
+        <%= link_to restaurant_menu_path(@menu.restaurant, preview: "true"), class: "button-47 mx-2" do %>
           <i class="fa-solid fa-eye"></i> &nbsp; View as Guest
         <% end %>
 
-        <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main-button"%>
+        <%= link_to "Add a Dish +", new_restaurant_menu_dish_path(@menu.restaurant, @menu), class: "main-button mx-2"%>
       </div>
     <% end %>
   </div>
 
-  <%= form_with url: restaurant_menu_path(@menu.restaurant.id, @menu.id), method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dish"%>
-    <%= hidden_field_tag :dish_type, params[:dish_type] if params[:dish_type].present? %>
-    <%= submit_tag "Search", class: "button-47" %>
-  <% end %>
+  <div class="d-flex justify-content-between align-items">
+    <div class="filter-btns">
+      <%= link_to "All", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit]), class: "filter-button #{'active-button' if params[:dish_type] == nil }" %>
+      <%= link_to "Starters", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "starter"), class: "filter-button #{'active-button' if params[:dish_type] == "starter"}" %>
+      <%= link_to "Main dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "main"), class: "filter-button #{'active-button' if params[:dish_type] == "main"}" %>
+      <%= link_to "Side dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "side"), class: "filter-button #{'active-button' if params[:dish_type] == "side"}" %>
+      <%= link_to "Deserts", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "desert"), class: "filter-button #{'active-button' if params[:dish_type] == "desert"}" %>
+      <%= link_to "Drinks", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "drink"), class: "filter-button #{'active-button' if params[:dish_type] == "drink"}" %>
 
-  <div class="filter-btns">
-    <%= link_to "All", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit]), class: "filter-button #{'active-button' if params[:dish_type] == nil }" %>
-    <%= link_to "Starters", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "starter"), class: "filter-button #{'active-button' if params[:dish_type] == "starter"}" %>
-    <%= link_to "Main dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "main"), class: "filter-button #{'active-button' if params[:dish_type] == "main"}" %>
-    <%= link_to "Side dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "side"), class: "filter-button #{'active-button' if params[:dish_type] == "side"}" %>
-    <%= link_to "Deserts", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "desert"), class: "filter-button #{'active-button' if params[:dish_type] == "desert"}" %>
-    <%= link_to "Drinks", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "drink"), class: "filter-button #{'active-button' if params[:dish_type] == "drink"}" %>
+      <%# <% @dish_types.each do |dish_type| %>
+        <%# <%= link_to dish_type.capitalize, restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: dish_type ), class: "filter-button #{'active-button' if params[:dish_type] == dish_type }" %>
+      <%# <% end %>
+    </div>
 
-
-    <%# <% @dish_types.each do |dish_type| %>
-      <%# <%= link_to dish_type.capitalize, restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: dish_type ), class: "filter-button #{'active-button' if params[:dish_type] == dish_type }" %>
-    <%# <% end %>
+    <div>
+      <%= form_with url: restaurant_menu_path(@menu.restaurant.id, @menu.id), method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control form-inputs form-radius", placeholder: "Find a dish"%>
+        <%= hidden_field_tag :dish_type, params[:dish_type] if params[:dish_type].present? %>
+        <%= submit_tag "Search", class: "button-47 ms-3" %>
+      <% end %>
+    </div>
   </div>
 
 
