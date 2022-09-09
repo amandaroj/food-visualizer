@@ -39,7 +39,8 @@ puts "Created #{u.first_name}!"
 
 UserRestaurant.create!(user_id: u.id, restaurant: r) # or (user: u, restaurant: r)
 
-m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id)
+m = Menu.create!(name: "Lunch menu", category: "lunch", restaurant_id: r.id, description: '
+  Lunch menu with many diverse dishes to choose from, available from noon until 16:00')
 puts "Created #{m.name}!"
 
 fries = Dish.new(dish_type: :side, average_rating: 3, name: "Fries", menu_id: m.id, description: "Homemade french fries", price: 7)
@@ -171,7 +172,8 @@ sangria.photos.attach(io: file, filename: "sangria.jpg", content_type: "image/jp
 sangria.save
 puts "Created #{sangria.name}!"
 
-dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id)
+dm = Menu.create!(name: "Winter menu", category: "dinner", restaurant_id: r.id, description: '
+  Menu with lots of local winter vegetables and popular flavours.')
 
 pizza = Dish.new(dish_type: :main, average_rating: 4, name: "Pizza", menu_id: dm.id, description: "Pizza with tomato sauce and other stuff", price: 9)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630584/FoodVisualizer/Original/8hz2j3c3svrr7sadd93qxqkhaiwu.jpg")
