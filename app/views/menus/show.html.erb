@@ -37,7 +37,7 @@ margin-left: 10px;", style: "left: -65px; top: 15px" do %>
       <%= link_to "Starters", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "starter"), class: "filter-button #{'active-button' if params[:dish_type] == "starter"}" %>
       <%= link_to "Main dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "main"), class: "filter-button #{'active-button' if params[:dish_type] == "main"}" %>
       <%= link_to "Side dishes", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "side"), class: "filter-button #{'active-button' if params[:dish_type] == "side"}" %>
-      <%= link_to "Deserts", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "desert"), class: "filter-button #{'active-button' if params[:dish_type] == "desert"}" %>
+      <%= link_to "Desserts", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "dessert"), class: "filter-button #{'active-button' if params[:dish_type] == "dessert"}" %>
       <%= link_to "Drinks", restaurant_menu_path(@menu.restaurant.id, @menu.id, query: params[:query], commit: params[:commit], dish_type: "drink"), class: "filter-button #{'active-button' if params[:dish_type] == "drink"}" %>
 
       <%# <% @dish_types.each do |dish_type| %>

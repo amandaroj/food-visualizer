@@ -116,7 +116,7 @@ pizza.save
 puts "Created #{pizza.name}!"
 Review.create!(content: "The tomato sauce tastes like ketchup", rating: 2, dish_id: pizza.id, created_at: 5.weeks.ago)
 
-churros = Dish.new(dish_type: :desert, average_rating: 5, name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
+churros = Dish.new(dish_type: :dessert, average_rating: 5, name: "Churros", menu_id: m.id, description: "Delicious vegan homemade churros", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630566/FoodVisualizer/Original/xvl3o9lryr5n1fsz0lxwfnbou6ej.jpg")
 churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
 churros.save
@@ -124,7 +124,7 @@ puts "Created #{churros.name}!"
 Review.create!(content: "Perfect churros!", rating: 5, dish_id: churros.id, created_at: 20.days.ago)
 Review.create!(content: "Loved it!", rating: 5, dish_id: churros.id, created_at: 7.weeks.ago)
 
-brownie = Dish.new(dish_type: :desert, average_rating: 5, name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
+brownie = Dish.new(dish_type: :dessert, average_rating: 5, name: "Brownie", menu_id: m.id, description: "Chocolate brownie, very nice", price: 4)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662556789/FoodVisualizer/Original/eah2pveigt21o2v2p0tiiuzctnmk.jpg")
 brownie.photos.attach(io: file, filename: "brownie.jpg", content_type: "image/jpg")
 file1 = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630534/FoodVisualizer/Original/bexxbkp3om5f5e4yp3w86vlh1qhu.jpg")
@@ -133,19 +133,19 @@ brownie.save
 puts "Created #{brownie.name}!"
 Review.create!(content: "Perfect! Better than my husband's", rating: 5, dish_id: brownie.id, created_at: 9.weeks.ago)
 
-cheesecake = Dish.new(dish_type: :desert, average_rating: 3, name: "Cheesecake", menu_id: m.id, description: "Unique type of cake", price: 5)
+cheesecake = Dish.new(dish_type: :dessert, average_rating: 3, name: "Cheesecake", menu_id: m.id, description: "Unique type of cake", price: 5)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630541/FoodVisualizer/Original/v5u5a1c7nfc3s91z1dcsfb9t4s0a.jpg")
 cheesecake.photos.attach(io: file, filename: "cheesecake.jpg", content_type: "image/jpg")
 cheesecake.save
 puts "Created #{cheesecake.name}!"
 
-hazelnutbrownie = Dish.new(dish_type: :desert, average_rating: 3, name: "Homemade Brownie", menu_id: m.id, description: "Chocolat brownie with hazelnut", price: 4)
+hazelnutbrownie = Dish.new(dish_type: :dessert, average_rating: 3, name: "Homemade Brownie", menu_id: m.id, description: "Chocolat brownie with hazelnut", price: 4)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630575/FoodVisualizer/Original/yswgr0gqtc4pcds17codu8fu9wmo.jpg")
 hazelnutbrownie.photos.attach(io: file, filename: "hazelnutbrownie.jpg", content_type: "image/jpg")
 hazelnutbrownie.save
 puts "Created #{hazelnutbrownie.name}!"
 
-icecream = Dish.new(dish_type: :desert, average_rating: 3, name: "Passion Fruit Ice Cream", menu_id: m.id, description: "Homemade passion fruit ice cream", price: 4)
+icecream = Dish.new(dish_type: :dessert, average_rating: 3, name: "Passion Fruit Ice Cream", menu_id: m.id, description: "Homemade passion fruit ice cream", price: 4)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630558/FoodVisualizer/Original/7377xs4hfbvpoqf2uhskp7inddtd.jpg")
 icecream.photos.attach(io: file, filename: "icecream.jpg", content_type: "image/jpg")
 icecream.save
@@ -180,7 +180,7 @@ pizza.save
 puts "Created #{pizza.name}!"
 
 
-churros = Dish.new(dish_type: :desert, average_rating: 3, name: "Churros", menu_id: dm.id, description: "Delicious vegan homemade churros", price: 11)
+churros = Dish.new(dish_type: :dessert, average_rating: 3, name: "Churros", menu_id: dm.id, description: "Delicious vegan homemade churros", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630566/FoodVisualizer/Original/xvl3o9lryr5n1fsz0lxwfnbou6ej.jpg")
 churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
 churros.save
@@ -202,7 +202,7 @@ jarritos.photos.attach(io: file, filename: "jarritos.jpg", content_type: "image/
 jarritos.save
 puts "Created #{jarritos.name}!"
 
-churros = Dish.new(dish_type: :desert, average_rating: 3, name: "Churros", menu_id: sm.id, description: "Delicious vegan homemade churros", price: 11)
+churros = Dish.new(dish_type: :dessert, average_rating: 3, name: "Churros", menu_id: sm.id, description: "Delicious vegan homemade churros", price: 11)
 file = URI.open("https://res.cloudinary.com/dmxsjswbi/image/upload/v1662630566/FoodVisualizer/Original/xvl3o9lryr5n1fsz0lxwfnbou6ej.jpg")
 churros.photos.attach(io: file, filename: "churros.jpg", content_type: "image/jpg")
 churros.save
