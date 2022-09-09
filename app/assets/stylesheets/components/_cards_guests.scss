@@ -9,6 +9,13 @@
 //   align-items: center;
 // }
 
+
+#line-height-preview {
+  line-height: 1.2 !important;
+}
+
+
+
 .center {
   margin: auto;
   width: 70%;
@@ -34,5 +41,11 @@
 @media only screen and (max-width: 990px) {
   .dish-cards {
     grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .ms-4 {
+    margin-left: 0 !important;
   }
 }

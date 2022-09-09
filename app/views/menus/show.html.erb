@@ -9,7 +9,7 @@ margin-left: 10px;", style: "left: -65px; top: 15px" do %>
       <div class="menu-preview-title">
       <h1><%= @menu.name %></h1>
       <% if @current_user_is_owner && @preview_mode %>
-        <h4 class="badge rounded-pill fs-4 category-pill ms-4">Preview</h4>
+        <h4 class="badge rounded-pill fs-4 category-pill ms-4 btn-preview-final line-height-preview" id = "line-height-preview">Preview</h4>
       <% end %>
       </div>
       <div class="show-page__menu-names">
