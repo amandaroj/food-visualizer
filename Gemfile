@@ -83,3 +83,5 @@ gem "chartkick"
 gem 'prawn'
 
 gem "matrix", "~> 0.4.2"
+
+gem "dockerfile-rails", ">= 1.2", :group => :development

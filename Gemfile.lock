@@ -111,6 +111,8 @@ GEM
       responders
       warden (~> 1.2.3)
     digest (3.1.0)
+    dockerfile-rails (1.2.0)
+      rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -300,6 +302,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
+  dockerfile-rails (>= 1.2)
   dotenv-rails
   font-awesome-sass (~> 6.1)
   jbuilder
